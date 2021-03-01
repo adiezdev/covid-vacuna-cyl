@@ -1,0 +1,11 @@
+/*Todas las importacciones*/
+@import url("./fonts/fonts.css");
+@import url("variable.css");
+@import url("main.css");
+
+/*Wigets*/
+@import url("./widgets/spinner.css");
+
+/*Components*/
+@import url("./components/stylesMap.css");
+@import url("./components/stylesCardDataComponent.css");

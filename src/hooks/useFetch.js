@@ -5,7 +5,8 @@ import { useEffect, useRef, useState } from "react"
 export const useFetch = ( url ) =>{
 
     const isMounted = useRef(true)
-    const [state, setState] = useState({ data: null , error: null })
+    const [isLogin, setisLogin] = useState(true)
+    const [state, setState] = useState({ data: null , error: null , isLogin })
 
     useEffect(() => {
         return () =>{
@@ -14,23 +15,19 @@ export const useFetch = ( url ) =>{
     }, [])
 
     useEffect( () => {
-        fetch( url )
-            .then(  resp =>  resp.json() )
-            .then( data =>{
-                
-                if(isMounted.current){
-                    setState({
-                        error: null,
-                        data
-                    })
-                }
-            })
-            .catch(() =>{
-                setState({
-                    data: null,
-                    error: 'No se pudo cargar la información'
+        const fecthjoke = async ()=>{
+            const resp = await fetch(url)
+            const json = await resp.json()
+            if(isMounted.current){
+                setState({ 
+                    data: json,
+                    error: null,
+                    isLogin: false 
                 })
-            })
+            }
+        }
+
+        fecthjoke();
   
     }, [url])
 

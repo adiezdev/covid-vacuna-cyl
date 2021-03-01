@@ -8,7 +8,7 @@ import { getTotalVacunasRecibidas } from '../selectors/vacunas-recibidas/getTota
 export const DataComponent = () => {
     const { data: personasvacunadas} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=personas-vacunadas-covid&q=&rows=1000') || {}
     
-    const { data: vacunasrecibidas} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=vacunas-recibidas-covid&rows=1000') || {}
+    const { data: vacunasrecibidas, isLogin} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=vacunas-recibidas-covid&rows=1000') || {}
 
 
     const informations = [
@@ -28,13 +28,12 @@ export const DataComponent = () => {
             'sumaReduce': useMemo(() => getTotalVacunasRecibidas(vacunasrecibidas ), [vacunasrecibidas]) 
         },
     ]
-
-
     return (
         <>
             <h1 className="t-center-big">Datos Recibidos</h1>
-            <div className="centerItemWrap">
+            <div className="center-item-wrap">
                 {
+                    !isLogin ?
                     informations.map( information => (
                         <CardDataComponent
                             key={information.id}
@@ -42,7 +41,7 @@ export const DataComponent = () => {
                             title={information.title}
                         />
                     ))
-
+                    : <div className="spinner p-inline-blok"></div> 
                 }
             </div>
         </>

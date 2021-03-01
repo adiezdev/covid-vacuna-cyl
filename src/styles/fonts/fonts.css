@@ -1,0 +1,10 @@
+@font-face{
+    font-family: 'Rubik';
+    font-style: normal;
+    src: local('Rubik Regular'),url('/src/fonts/Rubik-Regular.ttf');
+}
+@font-face{
+    font-family: 'Rubik Linght';
+    font-style: normal;
+    src: local('Rubik Linght'),url('/src/fonts/Rubik-Light.ttf');
+}

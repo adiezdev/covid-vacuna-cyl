@@ -1,6 +1,6 @@
 
 
- const clone = (obj) => Object.assign({}, obj);
+const clone = (obj) => Object.assign({}, obj);
 
 export const renameKeys = (object, key, newKey) => {
 

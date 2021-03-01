@@ -4,16 +4,12 @@ export const CardDataComponent = ({ sumaReduce,title}) => {
 
     let { total , groupByType} = sumaReduce;
     
-    const { AstraZeneca, Moderna ,Pfizer } = {...   groupByType}
-    console.log( groupByType);
+    const { AstraZeneca, Moderna ,Pfizer } = {...groupByType}
+
     return (
         <div className="maincard">
             <header className="t-center-big">{ title }</header>
-            {
-                !total ? 
-                <div className="spinner p-inline-blok"></div> :
-                 <div className="t-center-big">{total}</div>
-            }
+            <div className="t-center-big">{total}</div>
             {
                 !AstraZeneca || !Moderna || !Pfizer ? 
                 <div></div>:
