@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CardDataComponent = ({ sumaReduce,title}) => {
+export const CardDosisAdministradasComponent = ({ sumaReduce,title}) => {
 
     let { total , groupByType} = sumaReduce;
     

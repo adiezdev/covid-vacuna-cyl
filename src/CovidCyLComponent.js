@@ -1,13 +1,13 @@
 import React from 'react'
 import { MapComponent } from './components/MapComponent'
-import { DataComponent } from './components/DataComponent'
+import { DosisAdministradasComponent } from './components/DosisAdministradasComponent'
 
 export const CovidCyLComponent = () => {
 
     return (
         <>
             <MapComponent/>
-            <DataComponent />
+            <DosisAdministradasComponent />
         </>
     )
 }

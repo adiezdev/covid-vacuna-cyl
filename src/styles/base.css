@@ -7,5 +7,5 @@
 @import url("./widgets/spinner.css");
 
 /*Components*/
-@import url("./components/stylesMap.css");
-@import url("./components/stylesCardDataComponent.css");
+@import url("./components/stylesMapComponent.css");
+@import url("./components/stylesDataComponent.css");

@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react'
-import { CardDataComponent } from './CardDataComponent'
+import { CardDosisAdministradasComponent } from './CardDosisAdministradasComponent'
 import { useFetch } from '../hooks/useFetch'
 import { getTotalPersonasVacunadas } from '../selectors/personas-vacunadas/getTotalPersonasVacunadas'
 import { getTotalCicloCompleto } from '../selectors/personas-vacunadas/getTotalCicloCompleto'
 import { getTotalVacunasRecibidas } from '../selectors/vacunas-recibidas/getTotalVacunasRecibidas'
 
-export const DataComponent = () => {
+export const DosisAdministradasComponent = () => {
     const { data: personasvacunadas} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=personas-vacunadas-covid&q=&rows=1000') || {}
     
     const { data: vacunasrecibidas, isLogin} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=vacunas-recibidas-covid&rows=1000') || {}
@@ -30,12 +30,12 @@ export const DataComponent = () => {
     ]
     return (
         <>
-            <h1 className="t-center-big">Datos Recibidos</h1>
+            <h2 className="t-center-big">Datos Recibidos</h2>
             <div className="center-item-wrap">
                 {
                     !isLogin ?
                     informations.map( information => (
-                        <CardDataComponent
+                        <CardDosisAdministradasComponent
                             key={information.id}
                             sumaReduce={information.sumaReduce}
                             title={information.title}

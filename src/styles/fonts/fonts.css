@@ -8,3 +8,8 @@
     font-style: normal;
     src: local('Rubik Linght'),url('/src/fonts/Rubik-Light.ttf');
 }
+@font-face{
+    font-family: 'Rubik SemiBold';
+    font-style: bold;
+    src: local('Rubik SemiBold'),url('/src/fonts/Rubik-SemiBold.ttf');
+}
