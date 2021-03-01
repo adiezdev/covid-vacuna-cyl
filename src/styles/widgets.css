@@ -1,0 +1,15 @@
+@import url("fonts.css");
+@import url("variable.css");
+
+.spinner{
+    height: 48px;
+    width: 48px;
+    border: 5px solid var(--second--color);
+    border-radius: 50%;
+    border-top-color: var(--main--color);
+    animation: rotate 1s 0s infinite linear normal;
+}
+@keyframes rotate{
+    0% { transform: rotate(0);}
+    100% { transform: rotate(360deg);}
+}

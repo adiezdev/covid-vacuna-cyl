@@ -1,0 +1,39 @@
+@import url("fonts.css");
+@import url("variable.css");
+
+body{
+    font-family: var(--main--font);
+}
+.t-center-small{
+    text-align: center;
+    font-size: 12pt;
+}
+.t-center-midle{
+    text-align: center;
+    font-size: 23pt;
+}
+.t-center-big{
+    text-align: center;
+    font-size: 35pt;
+}
+.subtitulo{
+    font-family: var(--light--font);
+}
+.centerItemWrap{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.maincard{
+    border: solid 2px;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: center;
+    padding: 20px;
+    height: 285px;
+    width: 450px;
+}
+.p-inline-blok{
+    display: inline-block;
+}

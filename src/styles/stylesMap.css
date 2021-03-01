@@ -1,0 +1,13 @@
+.cylmap{
+    width: 100%;
+    height: 560px;
+}
+.provincies{
+    fill: var(--primary--color);
+    stroke: #FFF;
+    stroke-width: 1px;
+}
+.provincies:hover{
+    cursor: pointer;
+    fill: var(--second--color);
+}
