@@ -5,6 +5,7 @@
 
 /*Wigets*/
 @import url("./widgets/spinner.css");
+@import url("./widgets/cards.css");
 
 /*Components*/
 @import url("./components/stylesMapComponent.css");

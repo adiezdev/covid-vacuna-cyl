@@ -1,0 +1,22 @@
+.maincard{
+    flex: 1 1 0%;
+    border-radius: 5px;
+    border: solid 10px var(--primary--color);
+    margin: 5px;
+    padding: 15px;
+    overflow: hidden;
+    text-align: center;
+}
+.maincard header{
+    margin-bottom: 30px;
+    color: var(--primary--color);
+}
+.card-fiexWidth-midle{
+    max-width: 280px;
+}
+.card-fiexWidth-big{
+    max-width: 620px;
+}
+.data{
+    font-family: var(--bold--font);
+} 

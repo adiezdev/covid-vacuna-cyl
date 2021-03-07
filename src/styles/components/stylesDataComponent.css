@@ -1,9 +1,5 @@
-.maincard{
-    border: solid 2px;
-    border-radius: 10px;
-    margin: 5px;
-    text-align: center;
-    padding: 20px;
-    height: 285px;
-    width: 450px;
+@media only screen and (max-width: 590px){
+    .flex-column{
+        flex-direction: column;
+    }
 }

@@ -1,6 +1,17 @@
 :root{
+    --bg: #ffffff;
+    --colortext--default: #0b1016;
     --main--font: 'Rubik';
     --light--font: 'Rubik Linght';
+    --bold--font: 'Rubik Semibold';
     --primary--color: #51AA2A;
     --second--color: #53c606;
+    --color--stroke: #2c2f31;
+}
+@media screen and (prefers-color-scheme: dark) {
+:root{
+    --bg: #2c2f31;
+    --colortext--default: #f0f2f3;
+    --color--stroke: #f0f2f3;
+}
 }

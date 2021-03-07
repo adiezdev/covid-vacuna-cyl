@@ -1,4 +1,6 @@
 body{
+    background-color: var(--bg);
+    color: var(--colortext--default);
     font-family: var(--main--font);
 }
 .t-center-small{
@@ -7,21 +9,27 @@ body{
 }
 .t-center-midle{
     text-align: center;
-    font-size: 23pt;
+    font-size: 25pt;
 }
 .t-center-big{
     text-align: center;
     font-size: 35pt;
 }
-.subtitulo{
-    font-family: var(--light--font);
+.t-small{
+    font-size: 25pt;
+}
+.t-midle{
+    font-size: 25pt;
+}
+.t-big{
+    font-size: 35pt;
+}
+.p-inline-block{
+    display: inline-block;
 }
 .center-item-wrap{
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: unset;
     justify-content: center;
-}
-.p-inline-blok{
-    display: inline-block;
 }

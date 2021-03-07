@@ -4,8 +4,8 @@
 }
 .provincies{
     fill: var(--primary--color);
-    stroke: #FFF;
-    stroke-width: 1px;
+    stroke: var(--color--stroke);
+    stroke-width: 1.5px;
 }
 .provincies:hover{
     cursor: pointer;
