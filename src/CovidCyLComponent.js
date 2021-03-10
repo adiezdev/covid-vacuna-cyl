@@ -19,9 +19,18 @@ export const CovidCyLComponent = () => {
         className="t-center-big">
             Vacunas Adminitradas
         </h3>
-            <DosisAdministradasComponent />
-            <VacunasRecibidasComponent/>
-            <MapComponent/>
+        <DosisAdministradasComponent />
+        <h3
+        className="t-center-big">
+            Total de vacunas recibidas
+        </h3>
+        <VacunasRecibidasComponent/>
+        <h1 
+        className="t-center-big"
+        >
+            Datos por provincias
+        </h1>
+        <MapComponent/>
         <FooterComponent/>
         </>
     )

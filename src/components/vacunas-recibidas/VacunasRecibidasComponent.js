@@ -14,7 +14,6 @@ export const VacunasRecibidasComponent = () => {
 
     return (
         <div>
-            <h3 className="t-center-big">Total de vacunas recibidas</h3>
             <div className="center-item-wrap">
                 {
                 !isLogin ?
