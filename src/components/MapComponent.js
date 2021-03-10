@@ -8,7 +8,7 @@ import { getTotalPersonasVacunadasProvincia } from '../selectors/personas-vacuna
 
 export const MapComponent = () => {
         
-    const { data: personasvacunadasproprovincia , isLogin} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=personas-vacunadas-covid&q=&rows=1000') || {}
+    const { data: personasvacunadasproprovincia } = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=personas-vacunadas-covid&q=&rows=1000') || {}
 
     const groupByType =  getTotalPersonasVacunadasProvincia( personasvacunadasproprovincia )
 
@@ -46,8 +46,8 @@ export const MapComponent = () => {
             dataTip
             :
             <div className="t-center-small">
-                Dosis administradas en {dataTip}
-                <p>{groupByType[dataTip].vacuna}</p>
+                {dataTip}
+                <p> - Dosis Administradas: {groupByType[dataTip].vacuna}</p>
             </div>
             }/>
         </>
