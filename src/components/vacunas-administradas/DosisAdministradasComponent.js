@@ -22,7 +22,6 @@ export const DosisAdministradasComponent = () => {
     ]
     return (
         <>
-            <h3 className="t-center-big">Vacunas Adminitradas</h3>
             <div className="center-item-wrap flex-column">
                 {
                     informations.map( information => (
