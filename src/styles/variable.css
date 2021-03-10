@@ -7,11 +7,12 @@
     --primary--color: #51AA2A;
     --second--color: #53c606;
     --color--stroke: #2c2f31;
+    --color--bg--second: #eee;
 }
-@media screen and (prefers-color-scheme: dark) {
+/* @media screen and (prefers-color-scheme: dark) {
 :root{
     --bg: #2c2f31;
     --colortext--default: #f0f2f3;
     --color--stroke: #f0f2f3;
 }
-}
+} */
