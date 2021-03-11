@@ -2,12 +2,15 @@
     margin: 20px;
     padding: 2px;
 
+    top:20px;
+    position: sticky;
+
     display: flex;
     flex-direction: row;
 
     background-color: var(--bg);
     border: 1px solid var(--colortext--default);
-    border-radius: 30px;
+    border-radius: 10px;
     width: min-content;
 }
 .theme{

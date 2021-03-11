@@ -1,5 +1,7 @@
 
-
+/**
+ * Switch that composes each activation case, in which the predefined theme of your choice is stored. 
+*/
 export const themeSwitchReduce = ( state = [],action )=>{
 
     switch (action.type) {

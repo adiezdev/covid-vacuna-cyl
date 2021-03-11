@@ -1,14 +1,21 @@
 import React, { useEffect, useReducer } from 'react'
 import { themeSwitchReduce } from './themeSwitchReduce';
 
+/**
+ * Check init localstorage
+*/
 const init = () =>{
-    return localStorage.getItem('data-theme') 
+    return localStorage.getItem('data-theme') || ''
 }
+
 export const ThemeSwitchComponent = () => {
 
     const [state, dispatch] = useReducer(themeSwitchReduce , init)
 
-    
+    /**
+     * When logadind compoenent, check theme in local storage
+     * if not init, predefinied 'other' in useReducer
+    */
     useEffect(() => {
         
         const theme = localStorage.getItem('data-theme') || 'other'
@@ -17,7 +24,9 @@ export const ThemeSwitchComponent = () => {
             type: theme
         })
     }, [])
-
+    /**
+     * If useReducer return state ative, check is same to type and add class isActiviated
+     */
     return (
         <div className='switchComponent'>
             <label
