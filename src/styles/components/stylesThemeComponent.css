@@ -1,0 +1,16 @@
+.switchComponent{
+    margin: 20px;
+    padding: 2px;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: var(--bg);
+    border: 1px solid var(--colortext--default);
+    border-radius: 30px;
+    width: min-content;
+}
+.theme{
+    padding: 5px;
+    cursor: pointer;
+}

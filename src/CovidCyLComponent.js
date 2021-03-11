@@ -1,6 +1,7 @@
 import React from 'react'
 import { FooterComponent } from './components/FooterComponent'
 import { MapComponent } from './components/MapComponent'
+import { ThemeSwitchComponent } from './components/theme/ThemeSwitchComponent'
 import { DosisAdministradasComponent } from './components/vacunas-administradas/DosisAdministradasComponent'
 import { VacunasRecibidasComponent } from './components/vacunas-recibidas/VacunasRecibidasComponent'
 
@@ -8,6 +9,7 @@ export const CovidCyLComponent = () => {
 
     return (
         <>
+        <ThemeSwitchComponent/>
         <h1 className="center-item-wrap t-big">
             <img 
             src={'./assets/cyl.png'}

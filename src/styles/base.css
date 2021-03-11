@@ -8,6 +8,7 @@
 @import url("./widgets/cards.css");
 
 /*Components*/
+@import url("./components/stylesThemeComponent.css");
 @import url("./components/stylesMapComponent.css");
 @import url("./components/stylesDataComponent.css");
 @import url("./components/stylesFooterComponent.css");
