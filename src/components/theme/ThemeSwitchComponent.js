@@ -21,32 +21,30 @@ export const ThemeSwitchComponent = () => {
     console.log(state.type);
     return (
         <div className='switchComponent'>
-            <div
-                className={`theme ${state.type === 'light'? state.active : ''}`}
-                role='img'
+            <label
+                className={`theme ${state.type === 'light' ? state.active : ''}`}
                 onClick={() => dispatch({
                     type: 'light'
                 })}
             >
-            🌞</div>
-            <div
-                className={`theme ${state.type === 'other'? state.active : ''}`}
-                role='img'
-                onClick={()=>dispatch({
+                <span role='img'>☀️</span>
+            </label>
+            <label
+                 className={`theme ${state.type === 'other' ? state.active : ''}`}
+                 onClick={() => dispatch({
                     type: 'other'
                 })}
             >
-            💻
-            </div>
-            <div
-                className={`theme ${state.type === 'dark'? state.active : ''}`}
-                role='img'
-                onClick={()=> dispatch({
+                <span role='img'>💻</span>
+            </label>
+            <label
+                 className={`theme ${state.type === 'dark' ? state.active : ''}`}
+                 onClick={() => dispatch({
                     type: 'dark'
                 })}
             >
-            🌚
-            </div>
+                <span role='img'>🌑</span>
+            </label>
         </div>
     )
 }
