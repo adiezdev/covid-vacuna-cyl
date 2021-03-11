@@ -22,7 +22,7 @@ export const themeSwitchReduce = ( state = [],action )=>{
         default:
 
             document.documentElement.removeAttribute('data-theme')
-            localStorage.setItem('data-theme',action.type)
+             localStorage.setItem('data-theme',action.type)
             
             return { type: action.type , active: 'isActivated'};
         }

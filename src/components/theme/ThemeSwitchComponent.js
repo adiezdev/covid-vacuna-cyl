@@ -2,23 +2,22 @@ import React, { useEffect, useReducer } from 'react'
 import { themeSwitchReduce } from './themeSwitchReduce';
 
 const init = () =>{
-    return JSON.parse(localStorage.getItem('theme')) || ''
+    return localStorage.getItem('data-theme') 
 }
 export const ThemeSwitchComponent = () => {
 
-    const [state, dispatch] = useReducer(themeSwitchReduce, '', init)
+    const [state, dispatch] = useReducer(themeSwitchReduce , init)
 
     
     useEffect(() => {
         
-        const theme = localStorage.getItem('data-theme')
+        const theme = localStorage.getItem('data-theme') || 'other'
 
         dispatch({
             type: theme
         })
     }, [])
 
-    console.log(state.type);
     return (
         <div className='switchComponent'>
             <label
