@@ -9,10 +9,23 @@
     --color--stroke: #2c2f31;
     --color--bg--second: #eee;
 }
+html[data-theme="light"]{
+    --bg: #ffffff;
+    --colortext--default: #0b1016;
+    --color--stroke: #2c2f31;
+    --color--bg--second: #eee;
+}
+html[data-theme="dark"]{
+    --bg: #2c2f31;
+    --colortext--default: #f0f2f3;
+    --color--stroke: #f0f2f3;
+    --color--bg--second: #474a4d;
+}
 @media screen and (prefers-color-scheme: dark) {
 :root{
     --bg: #2c2f31;
     --colortext--default: #f0f2f3;
     --color--stroke: #f0f2f3;
+    --color--bg--second: #474a4d;
 }
 }

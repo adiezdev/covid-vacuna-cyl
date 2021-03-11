@@ -24,7 +24,6 @@ export const MapComponent = () => {
     
     return (
         <>     
-        <h1 className="t-center-big">Datos por provincias</h1>
         <svg          
             className="cylmap centerItem"
         >
