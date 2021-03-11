@@ -14,3 +14,6 @@
     padding: 5px;
     cursor: pointer;
 }
+.isActivated{
+    background-color: var(--primary--color);
+}

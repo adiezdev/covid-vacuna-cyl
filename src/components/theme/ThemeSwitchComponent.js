@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { themeSwitchReduce } from './themeSwitchReduce';
 
 const init = () =>{
@@ -8,26 +8,38 @@ export const ThemeSwitchComponent = () => {
 
     const [state, dispatch] = useReducer(themeSwitchReduce, '', init)
 
-    console.log(state);
+    
+    useEffect(() => {
+        
+        const theme = localStorage.getItem('data-theme')
+
+        dispatch({
+            type: theme
+        })
+    }, [])
+
+    console.log(state.type);
     return (
         <div className='switchComponent'>
             <div
-                className='theme sun'
+                className={`theme ${state.type === 'light'? state.active : ''}`}
                 role='img'
                 onClick={() => dispatch({
                     type: 'light'
                 })}
             >
-            🌞
-            </div>
+            🌞</div>
             <div
-                className='theme laptop'
+                className={`theme ${state.type === 'other'? state.active : ''}`}
                 role='img'
+                onClick={()=>dispatch({
+                    type: 'other'
+                })}
             >
             💻
             </div>
             <div
-                className='theme moon'
+                className={`theme ${state.type === 'dark'? state.active : ''}`}
                 role='img'
                 onClick={()=> dispatch({
                     type: 'dark'
