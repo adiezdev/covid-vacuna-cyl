@@ -1,0 +1,12 @@
+.types-vaccines{
+    list-style: none;
+}
+.types-vaccines img{
+    max-width: 141px;
+    height: 45px;
+}
+@media only screen and (max-width: 517px){
+    .types-vaccines{
+        display: block;
+    }
+}

@@ -21,10 +21,19 @@ export const VacunasRecibidasComponent = () => {
                     <header className="t-big">Total</header>
                     <div className="data t-big">{total}</div>
                     {
-                    <ul>
-                        <li className="t-center-midle">{Pfizer.vacuna}</li>
-                        <li className="t-center-midle">{Moderna.vacuna}</li>
-                        <li className="t-center-midle">{AstraZeneca.vacuna}</li>
+                    <ul className='types-vaccines'>
+                        <li className="t-center-midle">
+                            <img src='./assets/vacunas/pfizer.png' alt='Pfizer'/>
+                            <p>{Pfizer.vacuna}</p>
+                        </li>
+                        <li className="t-center-midle">
+                            <img src='./assets/vacunas/moderna.png' alt='Pfizer'/>
+                            <p>{Moderna.vacuna}</p>
+                        </li>
+                        <li className="t-center-midle">
+                            <img src='./assets/vacunas/astraceneca.png' alt='Pfizer'/>
+                            <p>{AstraZeneca.vacuna}</p>
+                        </li>
                     </ul>
                     }
                     </div>
