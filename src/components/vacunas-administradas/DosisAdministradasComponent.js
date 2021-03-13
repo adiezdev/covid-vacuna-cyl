@@ -10,14 +10,16 @@ export const DosisAdministradasComponent = () => {
 
     const informations = [
         {
-            'id':  0,
-            'title':'Personas vacunadas',
-            'sumaReduce': useMemo(() => getTotalPersonasVacunadas(personasvacunadas ), [personasvacunadas]) 
+            id:  0,
+            title:'Personas vacunadas',
+            sumaReduce: useMemo(() => getTotalPersonasVacunadas(personasvacunadas ), [personasvacunadas]) ,
+            img: './assets/icons/admin_vacuna'
         },
         {
-            'id':  1,
-            'title':'Personas con ciclo completo',
-            'sumaReduce':  useMemo(() => getTotalCicloCompleto(personasvacunadas ), [personasvacunadas]) 
+            id:  1,
+            title:'Personas con ciclo completo',
+            sumaReduce:  useMemo(() => getTotalCicloCompleto(personasvacunadas ), [personasvacunadas]),
+            img: './assets/icons/vacuna_completa'
         }
     ]
     return (
@@ -29,6 +31,7 @@ export const DosisAdministradasComponent = () => {
                             key={information.id}
                             sumaReduce={information.sumaReduce}
                             title={information.title}
+                            img={information.img}
                             loading={isLogin}
                         />
                     ))
