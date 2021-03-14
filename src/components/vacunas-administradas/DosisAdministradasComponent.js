@@ -23,7 +23,7 @@ export const DosisAdministradasComponent = () => {
         },
         {
             id:  1,
-            title:'Personas con ciclo completo',
+            title:'Personas con pauta completa',
             sumaReduce:  useMemo(() => getTotalCicloCompleto(personasvacunadas ), [personasvacunadas]),
             img: './assets/icons/vacuna_completa'
         }
