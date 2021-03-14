@@ -1,3 +1,6 @@
+.header-img{
+    width: 8rem;
+}
 @media only screen and (max-width: 590px){
     .flex-column{
         flex-direction: column;

@@ -1,12 +1,25 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ * 
+ * Component card vaccine
+ */
+export const CardDosisAdministradasComponent = ({ total,title, img, loading}) => {
 
-export const CardDosisAdministradasComponent = ({ sumaReduce,title, loading}) => {
 
-    let { total } = sumaReduce;
-    
     return (
         <div className="maincard card-fiexWidth-midle">
-            <header className="t-midle">{ title }</header>
+            <header>
+                <img 
+                className='header-img'
+                src={`${img}.svg`} 
+                alt='icono_vacuna' 
+                />
+                <p className='t-midle'>{ title }</p>
+            </header>
             {
                 !loading
                 ?
@@ -16,4 +29,13 @@ export const CardDosisAdministradasComponent = ({ sumaReduce,title, loading}) =>
             }
         </div>
     )
+}
+
+/**
+ * Proptypes
+ * To form the card, the title and the total are necessary
+ */
+CardDosisAdministradasComponent.popTypes= {
+    total: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired
 }
