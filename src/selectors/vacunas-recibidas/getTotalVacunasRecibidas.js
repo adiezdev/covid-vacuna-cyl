@@ -22,6 +22,21 @@ export const getTotalVacunasRecibidas = ( data )=>{
 
     groupByType = renameKeys(groupByType , 'Astra Zéneca' , 'AstraZeneca')
     groupByType = renameKeys(groupByType , 'Pfizer- BioNTech' , 'Pfizer')
+
     
-    return { total, groupByType};
+    let groupByTypeProvinces = records && records.reduce((group , data)=>{
+        const { total_vacunas_recibidas  , provincia } = data.fields
+        
+        console.log(provincia);
+
+        group[provincia] =group[provincia] || {vacuna:0}
+        group[provincia].vacuna += total_vacunas_recibidas
+
+
+        return group;
+    }, {})
+
+    console.log( groupByTypeProvinces);
+    
+    return { total, groupByType , groupByTypeProvinces};
 }

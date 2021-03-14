@@ -3,7 +3,7 @@
 export const getTotalPersonasVacunadasProvincia = ( data  )=>{
     const { records } = data || {}
 
-    let groupByType = records && records.reduce((group , data)=>{
+    let groupByProvince = records && records.reduce((group , data)=>{
         const { dosis_administradas , provincia } = data.fields
         
         group[provincia] =group[provincia] || {vacuna: 0}
@@ -13,5 +13,5 @@ export const getTotalPersonasVacunadasProvincia = ( data  )=>{
         return group;
     }, {})
 
-    return {...groupByType};
+    return {...groupByProvince};
 }
