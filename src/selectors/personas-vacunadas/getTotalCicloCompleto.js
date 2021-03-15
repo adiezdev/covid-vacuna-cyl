@@ -1,5 +1,8 @@
 
-
+/**
+ * 
+ * Filter that returns the total sum "Personas con la pauta completa"
+ */
 export const getTotalCicloCompleto = (data) =>{
     const { records } = data || {}
 
