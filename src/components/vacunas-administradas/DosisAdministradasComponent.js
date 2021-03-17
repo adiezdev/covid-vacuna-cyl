@@ -12,19 +12,20 @@ import { getTotalCicloCompleto } from '../../selectors/personas-vacunadas/getTot
  */
 export const DosisAdministradasComponent = () => {
 
-    const { data: personasvacunadas, isLogin} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=personas-vacunadas-covid&q=&rows=1000') || {}
+    const { data , isLogin } = useFetch( 1000 ,  'personas-vacunadas-covid')
+
     //Create array to tow data 
     const informations = [
         {
             id:  0,
             title:'Personas vacunadas',
-            sumaReduce: useMemo(() => getTotalPersonasVacunadas(personasvacunadas ), [personasvacunadas]) ,
+            sumaReduce: getTotalPersonasVacunadas(data),
             img: './assets/icons/admin_vacuna'
         },
         {
             id:  1,
             title:'Personas con pauta completa',
-            sumaReduce:  useMemo(() => getTotalCicloCompleto(personasvacunadas ), [personasvacunadas]),
+            sumaReduce: getTotalCicloCompleto(data),
             img: './assets/icons/vacuna_completa'
         }
     ]

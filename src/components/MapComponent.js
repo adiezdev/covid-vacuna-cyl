@@ -1,21 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactTooltip from 'react-tooltip';
 import data from '../data/cyl.geo.json'
+
 import * as d3  from "d3";
+
 import { useWindowSize } from '../hooks/useWindowSize';
 import { useFetch } from '../hooks/useFetch';
 import { getTotalPersonasVacunadasProvincia } from '../selectors/personas-vacunadas/getTotalPersonasVacunadasProvincia';
 import { getTotalVacunasRecibidas } from '../selectors/vacunas-recibidas/getTotalVacunasRecibidas';
 
+
 export const MapComponent = () => {
         
-    const { data: personasvacunadasproprovincia } = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=personas-vacunadas-covid&q=&rows=1000') || {}
+
+    const { data: personasvacunadasproprovincia  } = useFetch( 1000 , 'personas-vacunadas-covid')
     const groupByProvince =  getTotalPersonasVacunadasProvincia( personasvacunadasproprovincia )
 
-    const { data: vacunasrecibidas} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=vacunas-recibidas-covid&q=&rows=27&sort=fecha&facet=fecha&facet=provincia&facet=marca') || {}
-    const sumaReduce = getTotalVacunasRecibidas(vacunasrecibidas )
+    const { data: vacunasrecibidas  } = useFetch(27 , 'vacunas-recibidas-covid')
+    const sumaReduce = getTotalVacunasRecibidas( vacunasrecibidas )
 
-    let { groupByTypeProvinces} = sumaReduce;
+    const { groupByTypeProvinces} = sumaReduce;
 
 
     const size = useWindowSize();

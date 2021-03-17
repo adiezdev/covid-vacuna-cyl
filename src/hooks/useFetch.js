@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react"
+import { getVacunasCyL } from "../helpers/getVacunasCyL"
 
 
 
-export const useFetch = ( url ) =>{
+export const useFetch = ( rows , datset ) =>{
 
     const isMounted = useRef(true)
+    
     const [isLogin] = useState(true)
+
     const [state, setState] = useState({ data: null , error: null , isLogin })
 
     useEffect(() => {
@@ -14,22 +17,26 @@ export const useFetch = ( url ) =>{
         }        
     }, [])
 
-    useEffect( () => {
-        const fecthjoke = async ()=>{
-            const resp = await fetch(url)
-            const json = await resp.json()
-            if(isMounted.current){
-                setState({ 
-                    data: json,
-                    error: null,
-                    isLogin: false 
-                })
+    useEffect(() => {
+        getVacunasCyL( rows , datset)
+        .then(
+            data =>{
+                isMounted.current
+                ?
+                    setState({
+                        data: data,
+                        error: null,
+                        isLogin: false
+                    })
+                :
+                    setState({
+                        data: null,
+                        error: 'Error al cargar',
+                        isLogin: true
+                    })
             }
-        }
-
-        fecthjoke();
-  
-    }, [url])
+        )
+    }, [rows ,  datset])
 
     return state;
 }

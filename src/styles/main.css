@@ -20,7 +20,7 @@ a{
 }
 .t-center-big{
     text-align: center;
-    font-size: 35pt;
+    font-size: 30pt;
 }
 .t-small{
     font-size: 12pt;
@@ -29,7 +29,7 @@ a{
     font-size: 25pt;
 }
 .t-big{
-    font-size: 35pt;
+    font-size: 30pt;
 }
 .p-inline-block{
     display: inline-block;

@@ -1,17 +1,16 @@
 
 
-export const getTotalPersonasVacunadas = ( data )=>{
-    const { records } = data || {}
+export const getTotalPersonasVacunadas = ( records )=>{
 
 
-    const total = records && records.reduce((count  , data)=>{
+    const total = records?.reduce((count  , data)=>{
         const { dosis_administradas } = data.fields
 
         return count + dosis_administradas;
     }, 0)
 
 
-    const ciclototal = records && records.reduce((count  , data) =>
+    const ciclototal = records?.reduce((count  , data) =>
     {
         const { personas_vacunadas_ciclo_completo } = data.fields
         

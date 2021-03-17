@@ -1,12 +1,11 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useFetch } from '../../hooks/useFetch';
 import { getTotalVacunasRecibidas } from '../../selectors/vacunas-recibidas/getTotalVacunasRecibidas';
 
 export const VacunasRecibidasComponent = () => {
 
-    const { data: vacunasrecibidas, isLogin} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=vacunas-recibidas-covid&q=&rows=27&sort=fecha&facet=fecha&facet=provincia&facet=marca') || {}
-
-    const sumaReduce = useMemo(() => getTotalVacunasRecibidas(vacunasrecibidas ), [vacunasrecibidas]) 
+    const { data , isLogin } = useFetch(27 , 'vacunas-recibidas-covid')
+    const sumaReduce = getTotalVacunasRecibidas( data )
 
     let { total , groupByType} = sumaReduce;
     
@@ -15,7 +14,7 @@ export const VacunasRecibidasComponent = () => {
     return (
         <div>
             <div className="center-item-wrap">
-                {
+                { 
                 !isLogin ?
                     <div className="maincard card-fiexWidth-big">
                     <header className="t-big">Total</header>

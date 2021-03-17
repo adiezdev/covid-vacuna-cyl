@@ -1,9 +1,9 @@
 
 
-export const getTotalCicloCompleto = (data) =>{
-    const { records } = data || {}
+export const getTotalCicloCompleto = (records) =>{
 
-    const total = records && records.reduce((count  , data) =>
+
+    const total = records?.reduce((count  , data) =>
     {
         const { personas_vacunadas_ciclo_completo } = data.fields
         
