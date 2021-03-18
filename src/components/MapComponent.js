@@ -1,21 +1,26 @@
 import React from 'react'
 import ReactTooltip from 'react-tooltip';
 import data from '../data/cyl.geo.json'
+
 import * as d3  from "d3";
+
 import { useWindowSize } from '../hooks/useWindowSize';
 import { useFetch } from '../hooks/useFetch';
-import { getTotalPersonasVacunadasProvincia } from '../selectors/personas-vacunadas/getTotalPersonasVacunadasProvincia';
+import { getTotalPersonasVacunadas } from '../selectors/personas-vacunadas/getTotalPersonasVacunadas';
 import { getTotalVacunasRecibidas } from '../selectors/vacunas-recibidas/getTotalVacunasRecibidas';
+
 
 export const MapComponent = () => {
         
-    const { data: personasvacunadasproprovincia } = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=personas-vacunadas-covid&q=&rows=1000') || {}
-    const groupByProvince =  getTotalPersonasVacunadasProvincia( personasvacunadasproprovincia )
 
-    const { data: vacunasrecibidas} = useFetch('https://analisis.datosabiertos.jcyl.es/api/records/1.0/search/?dataset=vacunas-recibidas-covid&q=&rows=27&sort=fecha&facet=fecha&facet=provincia&facet=marca') || {}
-    const sumaReduce = getTotalVacunasRecibidas(vacunasrecibidas )
+    const { data: personasvacunadasproprovincia  } = useFetch( 1000 , 'personas-vacunadas-covid')
+    const datapersonasVacunadas =  getTotalPersonasVacunadas( personasvacunadasproprovincia )
+    const { ...groupByDosisProvincia } = datapersonasVacunadas;
 
-    let { groupByTypeProvinces} = sumaReduce;
+    const { data: vacunasrecibidas  } = useFetch(27 , 'vacunas-recibidas-covid')
+    const sumaReduce = getTotalVacunasRecibidas( vacunasrecibidas )
+
+    const { groupByVacunasProvincias } = sumaReduce;
 
 
     const size = useWindowSize();
@@ -44,16 +49,16 @@ export const MapComponent = () => {
         }
         </svg>
         <ReactTooltip id='data-province' aria-haspopup='true' getContent={(dataTip)=>
-            !groupByProvince[dataTip] 
+            !groupByDosisProvincia[dataTip] || !groupByVacunasProvincias[dataTip]
             ?
             dataTip
             :
             <div className="t-small">
                 <div className='t-center-small'>{dataTip}</div>
-                <p> - Dosis Administradas: {groupByProvince[dataTip].vacuna}</p>
-                <p> - Dosis Recibidas: {groupByTypeProvinces[dataTip].vacuna}</p>
+                <p> - Dosis Administradas: {groupByDosisProvincia[dataTip].vacuna}</p>
+                <p> - Dosis Recibidas: {groupByVacunasProvincias[dataTip].vacuna}</p>
             </div>
-            }/>
+        }/>
         </>
     )
 }
