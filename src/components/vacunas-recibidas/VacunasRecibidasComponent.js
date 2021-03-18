@@ -1,13 +1,18 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch';
 import { getTotalVacunasRecibidas } from '../../selectors/vacunas-recibidas/getTotalVacunasRecibidas';
-
+/**
+ * Component for 'Vacunas recbidas'
+ * and brand vaccine type
+ * @returns 
+ */
 export const VacunasRecibidasComponent = () => {
-
+    //Because to 27 lines is equals to lat modification
     const { data , isLogin } = useFetch(27 , 'vacunas-recibidas-covid')
     const sumaReduce = getTotalVacunasRecibidas( data )
-
-    let { total , groupByMarca} = sumaReduce;
+    
+    //Desestructuin data
+    const { total , groupByMarca} = sumaReduce;
     
     const { AstraZeneca, Moderna ,Pfizer } = {...groupByMarca}
 
@@ -26,11 +31,11 @@ export const VacunasRecibidasComponent = () => {
                             <div>{Pfizer.vacuna}</div>
                         </li>
                         <li className="t-midle">
-                            <img src='./assets/vacunas/moderna.png' alt='Pfizer'/>
+                            <img src='./assets/vacunas/moderna.png' alt='Moderna'/>
                             <div>{Moderna.vacuna}</div>
                         </li>
                         <li className="t-midle">
-                            <img src='./assets/vacunas/astraceneca.png' alt='Pfizer'/>
+                            <img src='./assets/vacunas/astraceneca.png' alt='Astraceneca'/>
                             <div>{AstraZeneca.vacuna}</div>
                         </li>
                     </ul>
