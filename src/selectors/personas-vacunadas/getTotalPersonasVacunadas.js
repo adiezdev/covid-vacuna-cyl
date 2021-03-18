@@ -1,4 +1,8 @@
-
+/**
+ * Method to add up all the figures of the vaccines, as the API does not give the option
+ * @param {*} records 
+ * @returns 
+ */
 
 export const getTotalPersonasVacunadas = ( records )=>{
 
@@ -16,5 +20,18 @@ export const getTotalPersonasVacunadas = ( records )=>{
         
         return count + personas_vacunadas_ciclo_completo;
     },0)
-    return {total , ciclototal};
+
+   
+    const groupByDosisProvincia = records?.reduce((group , data)=>{
+        const { dosis_administradas , provincia } = data.fields
+        
+        group[provincia] =group[provincia] || {vacuna: 0}
+        group[provincia].vacuna += dosis_administradas
+
+
+        return group;
+    }, {})
+
+
+    return {total , ciclototal, ...groupByDosisProvincia};
 }

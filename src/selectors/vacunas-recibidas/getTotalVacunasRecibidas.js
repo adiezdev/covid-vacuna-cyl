@@ -1,5 +1,10 @@
-import { renameKeys } from '../../functions/functionRemaneKeysObj';
 
+import { renameKeys } from '../../functions/functionRemaneKeysObj';
+/**
+ * Method to add up all the figures of the vaccines, as the API does not give the option
+ * @param {*} records 
+ * @returns 
+ */
 export const getTotalVacunasRecibidas = ( records )=>{
 
     
@@ -9,7 +14,7 @@ export const getTotalVacunasRecibidas = ( records )=>{
         return count + parseInt(total_vacunas_recibidas);
     }, 0)
 
-    let groupByType = records?.reduce((groups , data)=>{
+    let groupByMarca = records?.reduce((groups , data)=>{
         const { total_vacunas_recibidas , marca } = data.fields
         
         groups[marca] = groups[marca] || {vacuna:0}
@@ -18,10 +23,10 @@ export const getTotalVacunasRecibidas = ( records )=>{
         return groups;
     }, {})
 
-    groupByType = renameKeys(groupByType , 'Astra Zéneca' , 'AstraZeneca')
-    groupByType = renameKeys(groupByType , 'Pfizer- BioNTech' , 'Pfizer')
+    groupByMarca = renameKeys(groupByMarca , 'Astra Zéneca' , 'AstraZeneca')
+    groupByMarca = renameKeys(groupByMarca , 'Pfizer- BioNTech' , 'Pfizer')
     
-    const groupByTypeProvinces = records?.reduce((group , data)=>{
+    const groupByVacunasProvincias = records?.reduce((group , data)=>{
         const { total_vacunas_recibidas  , provincia } = data.fields
         
         group[provincia] =group[provincia] || {vacuna:0}
@@ -30,5 +35,5 @@ export const getTotalVacunasRecibidas = ( records )=>{
         return group;
     }, {})
     
-    return { total, groupByType , groupByTypeProvinces};
+    return { total, groupByMarca , groupByVacunasProvincias};
 }

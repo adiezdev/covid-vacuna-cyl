@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ReactTooltip from 'react-tooltip';
 import data from '../data/cyl.geo.json'
 
@@ -6,7 +6,7 @@ import * as d3  from "d3";
 
 import { useWindowSize } from '../hooks/useWindowSize';
 import { useFetch } from '../hooks/useFetch';
-import { getTotalPersonasVacunadasProvincia } from '../selectors/personas-vacunadas/getTotalPersonasVacunadasProvincia';
+import { getTotalPersonasVacunadas } from '../selectors/personas-vacunadas/getTotalPersonasVacunadas';
 import { getTotalVacunasRecibidas } from '../selectors/vacunas-recibidas/getTotalVacunasRecibidas';
 
 
@@ -14,12 +14,13 @@ export const MapComponent = () => {
         
 
     const { data: personasvacunadasproprovincia  } = useFetch( 1000 , 'personas-vacunadas-covid')
-    const groupByProvince =  getTotalPersonasVacunadasProvincia( personasvacunadasproprovincia )
+    const datapersonasVacunadas =  getTotalPersonasVacunadas( personasvacunadasproprovincia )
+    const { ...groupByDosisProvincia } = datapersonasVacunadas;
 
     const { data: vacunasrecibidas  } = useFetch(27 , 'vacunas-recibidas-covid')
     const sumaReduce = getTotalVacunasRecibidas( vacunasrecibidas )
 
-    const { groupByTypeProvinces} = sumaReduce;
+    const { groupByVacunasProvincias } = sumaReduce;
 
 
     const size = useWindowSize();
@@ -48,16 +49,16 @@ export const MapComponent = () => {
         }
         </svg>
         <ReactTooltip id='data-province' aria-haspopup='true' getContent={(dataTip)=>
-            !groupByProvince[dataTip] 
+            !groupByDosisProvincia[dataTip] || !groupByVacunasProvincias[dataTip]
             ?
             dataTip
             :
             <div className="t-small">
                 <div className='t-center-small'>{dataTip}</div>
-                <p> - Dosis Administradas: {groupByProvince[dataTip].vacuna}</p>
-                <p> - Dosis Recibidas: {groupByTypeProvinces[dataTip].vacuna}</p>
+                <p> - Dosis Administradas: {groupByDosisProvincia[dataTip].vacuna}</p>
+                <p> - Dosis Recibidas: {groupByVacunasProvincias[dataTip].vacuna}</p>
             </div>
-            }/>
+        }/>
         </>
     )
 }

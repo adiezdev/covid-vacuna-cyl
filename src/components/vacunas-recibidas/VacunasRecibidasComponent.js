@@ -7,9 +7,9 @@ export const VacunasRecibidasComponent = () => {
     const { data , isLogin } = useFetch(27 , 'vacunas-recibidas-covid')
     const sumaReduce = getTotalVacunasRecibidas( data )
 
-    let { total , groupByType} = sumaReduce;
+    let { total , groupByMarca} = sumaReduce;
     
-    const { AstraZeneca, Moderna ,Pfizer } = {...groupByType}
+    const { AstraZeneca, Moderna ,Pfizer } = {...groupByMarca}
 
     return (
         <div>
