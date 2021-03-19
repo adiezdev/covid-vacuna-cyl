@@ -1,6 +1,6 @@
 # Vacunación contra la COVID-19 en Castilla y León
 
-Este pequeño proyecto enseña, como va el proceso de vacunación dentro de la comunidad de Castilla y León en España
+Este pequeño proyecto enseña como va el proceso de vacunación dentro de la comunidad de Castilla y León en España
 
 ## Datos
 
@@ -12,7 +12,7 @@ Los datos proporcionados son totalmente públicos y accesibles para cualquier pe
 
 La web ha sido creada con el Framework de REACT puro, cosumiendo datos desde la API del anterior enlace. 
 
-Ésta web apareció como idea e inspiración del proyecto [covid-vacuna.app](https:/covid-vacuna.app/)
+Ésta web apareció como idea e inspiración del proyecto [covid-vacuna.app](https://covid-vacuna.app/)
 
 ## Contribucciones
 
