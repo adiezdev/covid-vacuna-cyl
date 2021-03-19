@@ -14,18 +14,21 @@ html[data-theme="light"]{
     --colortext--default: #0b1016;
     --color--stroke: #2c2f31;
     --color--bg--second: #eee;
+    --bg--card--: #fff;
 }
 html[data-theme="dark"]{
-    --bg: #2c2f31;
+    --bg: #252729;
     --colortext--default: #f0f2f3;
     --color--stroke: #f0f2f3;
     --color--bg--second: #474a4d;
+    --bg--card--: #343638;
 }
 @media screen and (prefers-color-scheme: dark) {
 :root{
-    --bg: #2c2f31;
+    --bg: #252729;
     --colortext--default: #f0f2f3;
     --color--stroke: #f0f2f3;
     --color--bg--second: #474a4d;
+    --bg--card--: #343638;
 }
 }

@@ -13,23 +13,14 @@ a{
 a:hover{
     text-decoration: underline;
 }
-.t-center-small{
+.t-center{
     text-align: center;
-    font-size: 12pt;
-}
-.t-center-midle{
-    text-align: center;
-    font-size: 25pt;
-}
-.t-center-big{
-    text-align: center;
-    font-size: 30pt;
 }
 .t-small{
     font-size: 12pt;
 }
 .t-midle{
-    font-size: 25pt;
+    font-size: 22pt;
 }
 .t-big{
     font-size: 30pt;

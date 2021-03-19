@@ -16,6 +16,7 @@ export const VacunasRecibidasComponent = () => {
     
     const { AstraZeneca, Moderna ,Pfizer } = {...groupByMarca}
 
+    console.log(groupByMarca);
     return (
         <div>
             <div className="center-item-wrap">
