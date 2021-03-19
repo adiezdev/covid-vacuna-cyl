@@ -11,10 +11,6 @@ export const CovidCyLComponent = () => {
         <>
         <ThemeSwitchComponent/>
         <h1 className="center-item-wrap t-big">
-            <img 
-            src={'./assets/cyl.png'}
-            alt={'Escudo de la cominidad de castilla y leon'}
-            width={100}/>
             Vacunación contra la COVID-19 en Castilla y León
         </h1>
         <h3 
@@ -33,6 +29,32 @@ export const CovidCyLComponent = () => {
             Datos por provincias
         </h1>
         <MapComponent/>
+        <div className=''>
+            <h1 className='t-center-big'>Datos obtenidos</h1>
+            <p
+                className='t-center-small'
+            ><img
+            src={'./assets/cyl.png'}
+            alt={'Escudo de la cominidad de castilla y leon'}
+            width={25}
+            /><a
+            href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/vacunas-recibidas-covid/'}>
+                API de la Junta de Castilla y León Vacunas recibidas covid
+            </a></p>
+            <p
+                className='t-center-small'
+            >
+            <img
+            src={'./assets/cyl.png'}
+            alt={'Escudo de la cominidad de castilla y leon'}
+            width={25}
+            />
+            <a
+            href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/personas-vacunadas-covid/'}>
+                API de la Junta de Castilla y León Personas vacunadas covid
+            </a>
+            </p>
+        </div>
         <FooterComponent/>
         </>
     )
