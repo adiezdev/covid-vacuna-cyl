@@ -54,7 +54,7 @@ export const MapComponent = () => {
             dataTip
             :
             <div className="t-small">
-                <div className='t-center-small'>{dataTip}</div>
+                <div className='t-small t-center'>{dataTip}</div>
                 <p> - Dosis Administradas: {groupByDosisProvincia[dataTip].vacuna}</p>
                 <p> - Dosis Recibidas: {groupByVacunasProvincias[dataTip].vacuna}</p>
             </div>
