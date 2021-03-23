@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { SpinnerComponent } from '../SpinnerComponent'
 /**
  * 
  * @param {*} param0 
@@ -25,7 +26,7 @@ export const CardDosisAdministradasComponent = ({ total,title, img, loading}) =>
                 ?
                 <div className="data t-big">{total}</div>
                 :
-                <div className="spinner p-inline-block"></div>
+                <SpinnerComponent></SpinnerComponent>
             }
         </div>
     )
@@ -35,7 +36,7 @@ export const CardDosisAdministradasComponent = ({ total,title, img, loading}) =>
  * Proptypes
  * To form the card, the title and the total are necessary
  */
-CardDosisAdministradasComponent.popTypes= {
+CardDosisAdministradasComponent.propTypes= {
     total: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch';
 import { getTotalVacunasRecibidas } from '../../selectors/vacunas-recibidas/getTotalVacunasRecibidas';
+import { SpinnerComponent } from '../SpinnerComponent';
 /**
  * Component for 'Vacunas recbidas'
  * and brand vaccine type
@@ -16,7 +17,6 @@ export const VacunasRecibidasComponent = () => {
     
     const { AstraZeneca, Moderna ,Pfizer } = {...groupByMarca}
 
-    console.log(groupByMarca);
     return (
         <div>
             <div className="center-item-wrap">
@@ -42,7 +42,7 @@ export const VacunasRecibidasComponent = () => {
                     </ul>
                     }
                     </div>
-                :<div className="spinner p-inline-block"></div>
+                :<SpinnerComponent></SpinnerComponent>
                 }
             </div>
         </div>

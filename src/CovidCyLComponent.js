@@ -29,7 +29,7 @@ export const CovidCyLComponent = () => {
             Datos por provincias
         </h1>
         <MapComponent/>
-        <div className=''>
+        <div>
             <h1 className='t-center t-big'>Datos obtenidos</h1>
             <p
                 className='t-center t-small'
