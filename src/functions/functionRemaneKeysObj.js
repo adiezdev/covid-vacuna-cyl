@@ -3,7 +3,7 @@
  * @param {*} obj 
  * @returns 
  * 
- * Function that renames the keys of an object according to the group
+ * This function had to be created because, when doing the reducer and grouping, the keys of the object had separations.
  */
 
 //Initial clone object functiom

@@ -17,7 +17,7 @@ export const ThemeSwitchComponent = () => {
      * if not init, predefinied 'other' in useReducer
     */
     useEffect(() => {
-        
+        //comprueba si hay algo en el localstorage sino inicializa other
         const theme = localStorage.getItem('data-theme') || 'other'
 
         dispatch({

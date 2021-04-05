@@ -6,28 +6,24 @@ import * as d3  from "d3";
 
 import { useWindowSize } from '../hooks/useWindowSize';
 import { useFetch } from '../hooks/useFetch';
-import { getTotalPersonasVacunadas } from '../selectors/personas-vacunadas/getTotalPersonasVacunadas';
-import { getTotalVacunasRecibidas } from '../selectors/vacunas-recibidas/getTotalVacunasRecibidas';
+import { getPersonasVacunadas } from '../selectors/personas-vacunadas/getPersonasVacunadas';
+import { getVacunasRecibidas } from '../selectors/vacunas-recibidas/getVacunasRecibidas';
 
 
 export const MapComponent = () => {
         
 
     const { data: personasvacunadasproprovincia  } = useFetch( 1000 , 'personas-vacunadas-covid')
-    const datapersonasVacunadas =  getTotalPersonasVacunadas( personasvacunadasproprovincia )
-    const { ...groupByDosisProvincia } = datapersonasVacunadas;
+    const { ...groupByDosisProvincia } =  getPersonasVacunadas( personasvacunadasproprovincia )
 
     const { data: vacunasrecibidas  } = useFetch(27 , 'vacunas-recibidas-covid')
-    const sumaReduce = getTotalVacunasRecibidas( vacunasrecibidas )
+    const { groupByVacunasProvincias } = getVacunasRecibidas( vacunasrecibidas )
 
-    const { groupByVacunasProvincias } = sumaReduce;
-
-
-    const size = useWindowSize();
+    const  {windowSize}  = useWindowSize();
     //Projection to map
     const projection = d3.geoMercator()
-                        .scale([size.with > 722 ? 6800 :  (950 * size.with)/100])
-                        .center([ size.with > 435 ?  (-0.45 * size.with)/100 : size.with > 360 ? (-0.05* size.with)/100  : ( 0.20 * size.with)/100  , size.with > 500 ? 42 : 41.2])
+                        .scale([windowSize.with > 722 ? 6800 :  (950 * windowSize.with)/100])
+                        .center([ windowSize.with > 435 ?  (-0.45 * windowSize.with)/100 : windowSize.with > 360 ? (-0.05* windowSize.with)/100  : ( 0.20 * windowSize.with)/100  , windowSize.with > 500 ? 42 : 41.2])
     //Paint var to json
     const pathGenerator = d3.geoPath().projection(projection)
     
@@ -42,7 +38,7 @@ export const MapComponent = () => {
                 key={`path${i}`}
                 d={pathGenerator(d)}
                 className="provincies"
-                data-tip={d.properties.name}
+                data-tip={d.properties.name} //We pass the province to the toolip
                 data-for='data-province'
             />
             )

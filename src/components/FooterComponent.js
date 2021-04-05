@@ -1,7 +1,7 @@
 import React from 'react'
 
 /*
-Componente con información del proyecto estático
+* Componente project information
 */
 export const FooterComponent = () => {
     return (

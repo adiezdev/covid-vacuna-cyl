@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 /**
  * 
- * Component Spinner
+ * Component Spinner when loading data
  * @returns 
  */
 export const SpinnerComponent = ({otherclass = 'p-inline-block'}) => {

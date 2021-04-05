@@ -1,7 +1,7 @@
 import React from 'react'
 import { CardDosisAdministradasComponent } from './CardDosisAdministradasComponent'
 import { useFetch } from '../../hooks/useFetch'
-import { getTotalPersonasVacunadas } from '../../selectors/personas-vacunadas/getTotalPersonasVacunadas'
+import { getPersonasVacunadas } from '../../selectors/personas-vacunadas/getPersonasVacunadas'
 
 /**
  * Component form cards 
@@ -12,7 +12,7 @@ import { getTotalPersonasVacunadas } from '../../selectors/personas-vacunadas/ge
 export const DosisAdministradasComponent = () => {
 
     const { data , isLogin } = useFetch( 1000 ,  'personas-vacunadas-covid')
-    const { total , ciclototal  } = getTotalPersonasVacunadas(data)
+    const { total , ciclototal  } = getPersonasVacunadas(data)
     //Create array to tow data 
     const informations = [
         {

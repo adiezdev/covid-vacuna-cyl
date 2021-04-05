@@ -5,7 +5,7 @@ import { renameKeys } from '../../functions/functionRemaneKeysObj';
  * @param {*} records 
  * @returns 
  */
-export const getTotalVacunasRecibidas = ( records )=>{
+export const getVacunasRecibidas = ( records )=>{
 
     
     const total = records?.reduce((count , data)=>{

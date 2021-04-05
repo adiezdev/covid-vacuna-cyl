@@ -1,10 +1,8 @@
 /**
- * Method to add up all the figures of the vaccines, as the API does not give the option
- * @param {*} records 
- * @returns 
+ * 
  */
 
-export const getTotalPersonasVacunadas = ( records )=>{
+export const getPersonasVacunadas = ( records )=>{
 
 
     const total = records?.reduce((count  , data)=>{

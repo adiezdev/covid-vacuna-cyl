@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch';
-import { getTotalVacunasRecibidas } from '../../selectors/vacunas-recibidas/getTotalVacunasRecibidas';
+import { getVacunasRecibidas } from '../../selectors/vacunas-recibidas/getVacunasRecibidas';
 import { SpinnerComponent } from '../SpinnerComponent';
 /**
  * Component for 'Vacunas recbidas'
@@ -8,15 +8,10 @@ import { SpinnerComponent } from '../SpinnerComponent';
  * @returns 
  */
 export const VacunasRecibidasComponent = () => {
-    //Because to 27 lines is equals to lat modification
+    //Because to 27 lines is equals to last modification
     const { data , isLogin } = useFetch(27 , 'vacunas-recibidas-covid')
-    const sumaReduce = getTotalVacunasRecibidas( data )
+    const { total , groupByMarca: { AstraZeneca, Moderna ,Pfizer } }  = getVacunasRecibidas( data )
     
-    //Desestructuin data
-    const { total , groupByMarca} = sumaReduce;
-    
-    const { AstraZeneca, Moderna ,Pfizer } = {...groupByMarca}
-
     return (
         <div>
             <div className="center-item-wrap">

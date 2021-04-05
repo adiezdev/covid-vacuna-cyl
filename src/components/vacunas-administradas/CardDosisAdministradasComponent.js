@@ -3,10 +3,7 @@ import PropTypes from 'prop-types'
 import { SpinnerComponent } from '../SpinnerComponent'
 /**
  * 
- * @param {*} param0 
- * @returns 
- * 
- * Component card vaccine
+ * Component forming the card
  */
 export const CardDosisAdministradasComponent = ({ total,title, img, loading}) => {
 
