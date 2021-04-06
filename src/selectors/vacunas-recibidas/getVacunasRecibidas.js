@@ -1,5 +1,5 @@
 
-import { renameKeys } from '../../functions/functionRemaneKeysObj';
+import { renameKeys } from '../../functions/renameKeyObj';
 /**
  * Method to add up all the figures of the vaccines, as the API does not give the option
  * @param {*} records 
