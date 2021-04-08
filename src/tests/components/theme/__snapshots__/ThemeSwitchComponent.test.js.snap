@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas al componente <TheSwitchComponent/> Debe de mostrarse correctamente 1`] = `
+<div
+  className="switchComponent"
+>
+  <label
+    className="theme "
+    onClick={[Function]}
+  >
+    <span
+      role="img"
+    >
+      ☀️
+    </span>
+  </label>
+  <label
+    className="theme "
+    onClick={[Function]}
+  >
+    <span
+      role="img"
+    >
+      💻
+    </span>
+  </label>
+  <label
+    className="theme "
+    onClick={[Function]}
+  >
+    <span
+      role="img"
+    >
+      🌑
+    </span>
+  </label>
+</div>
+`;
