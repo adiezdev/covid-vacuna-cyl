@@ -11,11 +11,6 @@ export const useFetch = ( rows , datset ) =>{
 
     const [state, setState] = useState({ data: null , error: null , isLogin })
 
-    useEffect(() => {
-        return () =>{
-            isMounted.current = false;
-        }        
-    }, [])
 
     useEffect(() => {
         getVacunasCyL( rows , datset)

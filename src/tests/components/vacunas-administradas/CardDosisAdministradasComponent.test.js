@@ -10,6 +10,18 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Pruebas unitarias para <CardDosisAdministradasComponent/>',() =>{
 
+    test('No debe de cargar el total y debe de mostrarse el spinner',()=>{
+
+        const wrapper = shallow(
+            <CardDosisAdministradasComponent 
+        total={informations[0].sumaReduce} 
+        title={informations[0].title} 
+        img={informations[0].img}
+        loading={true}/>)
+
+        expect(wrapper.find('SpinnerComponent').length ).toBe( 1 )
+    })
+
     const wrapper = shallow( 
     <CardDosisAdministradasComponent 
         total={informations[0].sumaReduce} 
@@ -28,15 +40,4 @@ describe('Pruebas unitarias para <CardDosisAdministradasComponent/>',() =>{
         expect(div.text()).toBe(`${informations[0].sumaReduce}`)
     })
 
-    test('No debe de cargar el total y debe de mostrarse el spinner',()=>{
-
-        const wrapper = shallow(
-            <CardDosisAdministradasComponent 
-        total={informations[0].sumaReduce} 
-        title={informations[0].title} 
-        img={informations[0].img}
-        loading={true}/>)
-
-        expect(wrapper.find('SpinnerComponent').length ).toBe( 1 )
-    })
 })
