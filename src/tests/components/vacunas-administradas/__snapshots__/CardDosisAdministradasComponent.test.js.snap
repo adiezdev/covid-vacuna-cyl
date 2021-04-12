@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas unitarias para <CardDosisAdministradasComponent/> Renderizar correctamente el componente 1`] = `
+<div
+  className="maincard card-fiexWidth-midle"
+>
+  <header>
+    <img
+      alt="icono_vacuna"
+      className="header-img"
+      src="./assets/icons/admin_vacuna.svg"
+    />
+    <p
+      className="t-midle"
+    >
+      Personas vacunadas
+    </p>
+  </header>
+  <div
+    className="data t-big"
+  >
+    10000000
+  </div>
+</div>
+`;

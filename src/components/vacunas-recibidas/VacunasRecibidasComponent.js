@@ -17,7 +17,7 @@ export const VacunasRecibidasComponent = () => {
             <div className="center-item-wrap">
                 { 
                 !isLogin ?
-                    <div className="maincard card-fiexWidth-big">
+                    <div className="maincard card-fiexWidth-big" data-testid='list'>
                     <header className="t-big">Total</header>
                     <div className="data t-big">{total}</div>
                     {

@@ -5,8 +5,8 @@ import { useEffect, useState } from "react"
 export const useWindowSize = () =>{
     //Inicialite with/heigth for server an render to match
     const [windowSize, setwindowSize] = useState({
-        with: undefined,
-        height: undefined,
+        with: '',
+        height: '',
     });
 
     useEffect(() => {
