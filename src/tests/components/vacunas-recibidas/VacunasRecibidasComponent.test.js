@@ -1,5 +1,5 @@
 import Enzyme, { shallow } from "enzyme";
-import {render} from '@testing-library/react'
+import {cleanup, render, waitFor, waitForElement} from '@testing-library/react'
 import { VacunasRecibidasComponent } from "../../../components/vacunas-recibidas/VacunasRecibidasComponent";
 
 import "@testing-library/jest-dom/extend-expect";
@@ -12,8 +12,6 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Pruebas unitarias sobre el compoenete <VacunasRecibidasComponent/>',() => {
 
     
-    const wrapper = shallow( <VacunasRecibidasComponent/> )
-
     test('Spiner enconrado antes de hacer la peticion del datos',async () => {
 
 
@@ -21,9 +19,18 @@ describe('Pruebas unitarias sobre el compoenete <VacunasRecibidasComponent/>',()
 
         const loading = await findByTestId("loading");
         expect(loading).toBeInTheDocument();
+
+        cleanup()
     })
 
 
+    it('Cuando el fetch ha acabado de recibir datos', async() =>{
+        const { findByTestId  } = render(<VacunasRecibidasComponent />);
+
+        const list = await  findByTestId('list');
+        expect(list).toBeInTheDocument();
+        
+    })
 
 })
 
