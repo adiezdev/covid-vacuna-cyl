@@ -5,7 +5,7 @@ import { SpinnerComponent } from '../SpinnerComponent'
  * 
  * Component forming the card
  */
-export const CardDosisAdministradasComponent = ({ total,title, img, loading}) => {
+export const CardDosisAdministradasComponent = ({ total = 0,title, img, loading}) => {
 
 
     return (
