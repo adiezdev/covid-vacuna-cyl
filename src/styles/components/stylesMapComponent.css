@@ -3,11 +3,9 @@
     height: 560px;
 }
 .provincies{
-    fill: var(--primary--color);
     stroke: var(--color--stroke);
     stroke-width: 1.5px;
 }
 .provincies:hover{
     cursor: pointer;
-    fill: var(--second--color);
 }

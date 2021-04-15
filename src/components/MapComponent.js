@@ -27,6 +27,34 @@ export const MapComponent = () => {
     //Paint var to json
     const pathGenerator = d3.geoPath().projection(projection)
     
+    const fillmap = (provincia) =>{
+        const numeroVacunas = groupByDosisProvincia[provincia] || ''
+
+        if(numeroVacunas){
+            if(numeroVacunas.vacuna <= 45000)
+                return '#78E92C'
+            if(numeroVacunas.vacuna <= 55000)
+                return '#58C60E'
+            if(numeroVacunas.vacuna <= 65000)
+                return '#48AA06'
+            if(numeroVacunas.vacuna <= 85000)
+                return '#4B9B16'
+            if(numeroVacunas.vacuna <= 95000)
+                return '#428A13'
+            if(numeroVacunas.vacuna <= 115000)
+                return '#428A13'
+            if(numeroVacunas.vacuna <= 135000)
+                return '#35700F'
+            if(numeroVacunas.vacuna <= 145000)
+                return '#2F630D'
+            if(numeroVacunas.vacuna <= 225000)
+                return '#235008'
+            if(numeroVacunas.vacuna <= 225000)
+                return '#163304'
+        }
+        return 'green'
+    }
+
     return (
         <>     
         <svg          
@@ -40,6 +68,7 @@ export const MapComponent = () => {
                 className="provincies"
                 data-tip={d.properties.name} //We pass the province to the toolip
                 data-for='data-province'
+                style={{fill: fillmap(d.properties.name)}}
             />
             )
         }
