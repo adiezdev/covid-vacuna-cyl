@@ -10,8 +10,8 @@ import { SpinnerComponent } from '../SpinnerComponent';
 export const VacunasRecibidasComponent = () => {
     //Because to 27 lines is equals to last modification
     const { data , isLogin } = useFetch(27 , 'vacunas-recibidas-covid')
-    const { total , groupByMarca: { AstraZeneca, Moderna ,Pfizer } }  = getVacunasRecibidas( data )
-    
+    const { total , groupByMarca: { AstraZeneca, Moderna ,Pfizer, Janssen } }  = getVacunasRecibidas( data )
+    console.log(getVacunasRecibidas( data ));
     return (
         <div>
             <div className="center-item-wrap">
@@ -33,6 +33,10 @@ export const VacunasRecibidasComponent = () => {
                         <li className="t-midle">
                             <img src='./assets/vacunas/astraceneca.png' alt='Astraceneca'/>
                             <div>{AstraZeneca.vacuna}</div>
+                        </li>
+                        <li className="t-midle">
+                            <img src='./assets/vacunas/janssen.png' alt='Astraceneca'/>
+                            <div>{Janssen.vacuna}</div>
                         </li>
                     </ul>
                     }
