@@ -47,10 +47,10 @@ export const MapComponent = () => {
                 return '#35700F'
             if(numeroVacunas.vacuna <= 145000)
                 return '#2F630D'
-            if(numeroVacunas.vacuna <= 225000)
+            if(numeroVacunas.vacuna <= 155000)
                 return '#235008'
-            if(numeroVacunas.vacuna <= 225000)
-                return '#163304'
+            if(numeroVacunas.vacuna <= 205000)
+                return '#163802'
         }
         return 'green'
     }

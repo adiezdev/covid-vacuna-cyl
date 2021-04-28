@@ -6,13 +6,13 @@
     --bold--font: 'Rubik Semibold';
     --primary--color: #51AA2A;
     --second--color: #53c606;
-    --color--stroke: #2c2f31;
+    --color--stroke: #0e0e0e;
     --color--bg--second: #eee;
 }
 html[data-theme="light"]{
     --bg: #ffffff;
     --colortext--default: #0b1016;
-    --color--stroke: #2c2f31;
+    --color--stroke: #0e0e0e;
     --color--bg--second: #eee;
     --bg--card--: #fff;
 }
