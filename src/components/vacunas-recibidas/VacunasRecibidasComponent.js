@@ -8,10 +8,9 @@ import { SpinnerComponent } from '../SpinnerComponent';
  * @returns 
  */
 export const VacunasRecibidasComponent = () => {
-    //Because to 27 lines is equals to last modification
+    //Because to 36 lines is equals to last modification
     const { data , isLogin } = useFetch(36 , 'vacunas-recibidas-covid')
     const { total , groupByMarca: { AstraZeneca, Moderna ,Pfizer, Janssen } }  = getVacunasRecibidas( data )
-    console.log(getVacunasRecibidas( data ));
     return (
         <div>
             <div className="center-item-wrap">
