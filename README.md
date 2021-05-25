@@ -22,5 +22,5 @@ Están abiertas las contribuciones a todas las personas que quiera, sin ningun t
 
 - [x] Hook useLocalStorage
 - [x] Cambiar el color del mapa según la cantidad de dosis
-- [ ] Progressbar con el tanto por ciento de la población vacuna y de la que quedaría por vacunar
-- [ ] Gráficas de las vacunas recebidas y administradas #7
+- [ ] Progressbar con el tanto por ciento de la población vacuna y de la que quedaría por vacunar (Por porcentaje)
+- [x] Gráficas de las administradas #7
