@@ -1,5 +1,6 @@
 import React from 'react'
 import { FooterComponent } from './components/FooterComponent'
+import { Graphics } from './components/Graphics'
 import { MapComponent } from './components/MapComponent'
 import { ThemeSwitchComponent } from './components/theme/ThemeSwitchComponent'
 import { DosisAdministradasComponent } from './components/vacunas-administradas/DosisAdministradasComponent'
@@ -29,6 +30,9 @@ export const CovidCyLComponent = () => {
             Datos por provincias
         </h1>
         <MapComponent/>
+        <h1 className='t-center t-midle'>Progreso de vacunación</h1>
+
+        <Graphics/>
         <div>
             <h1 className='t-center t-big'>Datos obtenidos</h1>
             <p

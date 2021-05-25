@@ -5,14 +5,14 @@
 export const getPersonasVacunadas = ( records )=>{
 
 
-    const total = records?.reduce((count  , data)=>{
-        const { dosis_administradas } = data.fields
+    const total = records?.filter((data) => data.fields.provincia === "TotalCyL").reduce((count  , data)=>{
+        const { dosis_administradas  } = data.fields
 
         return count + dosis_administradas;
     }, 0)
 
 
-    const ciclototal = records?.reduce((count  , data) =>
+    const ciclototal = records?.filter((data) => data.fields.provincia === "TotalCyL").reduce((count  , data) =>
     {
         const { personas_vacunadas_ciclo_completo } = data.fields
         
@@ -30,6 +30,7 @@ export const getPersonasVacunadas = ( records )=>{
         return group;
     }, {})
 
+    const totalProgresivo = records?.filter((data) => data.fields.provincia === "TotalCyL");
 
-    return {total , ciclototal, ...groupByDosisProvincia};
+    return {total , ciclototal, ...groupByDosisProvincia, totalProgresivo};
 }

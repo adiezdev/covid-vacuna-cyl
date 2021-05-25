@@ -11,7 +11,7 @@ import { getPersonasVacunadas } from '../../selectors/personas-vacunadas/getPers
  */
 export const DosisAdministradasComponent = () => {
 
-    const { data , isLogin } = useFetch( 1000 ,  'personas-vacunadas-covid')
+    const { data , isLogin } = useFetch( 3000 ,  'personas-vacunadas-covid')
     const { total , ciclototal  } = getPersonasVacunadas(data)
     //Create array to tow data 
     const informations = [

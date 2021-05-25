@@ -13,10 +13,10 @@ import { getVacunasRecibidas } from '../selectors/vacunas-recibidas/getVacunasRe
 export const MapComponent = () => {
         
 
-    const { data: personasvacunadasproprovincia  } = useFetch( 1000 , 'personas-vacunadas-covid')
+    const { data: personasvacunadasproprovincia  } = useFetch( 3000 , 'personas-vacunadas-covid')
     const { ...groupByDosisProvincia } =  getPersonasVacunadas( personasvacunadasproprovincia )
 
-    const { data: vacunasrecibidas  } = useFetch(27 , 'vacunas-recibidas-covid')
+    const { data: vacunasrecibidas  } = useFetch(36 , 'vacunas-recibidas-covid')
     const { groupByVacunasProvincias } = getVacunasRecibidas( vacunasrecibidas )
 
     const  {windowSize}  = useWindowSize();
@@ -31,26 +31,26 @@ export const MapComponent = () => {
         const numeroVacunas = groupByDosisProvincia[provincia] || ''
 
         if(numeroVacunas){
-            if(numeroVacunas.vacuna <= 45000)
-                return '#78E92C'
-            if(numeroVacunas.vacuna <= 55000)
-                return '#58C60E'
-            if(numeroVacunas.vacuna <= 65000)
-                return '#48AA06'
             if(numeroVacunas.vacuna <= 85000)
-                return '#4B9B16'
+                return '#6ACA2B'
             if(numeroVacunas.vacuna <= 95000)
-                return '#428A13'
+                return '#63BF28'
             if(numeroVacunas.vacuna <= 115000)
-                return '#428A13'
+                return '#57AC20'
             if(numeroVacunas.vacuna <= 135000)
-                return '#35700F'
+                return '#50A01D'
             if(numeroVacunas.vacuna <= 145000)
-                return '#2F630D'
+                return '#438B16'
             if(numeroVacunas.vacuna <= 155000)
-                return '#235008'
+                return '#3B7C13'
             if(numeroVacunas.vacuna <= 205000)
-                return '#163802'
+                return '#367310'
+            if(numeroVacunas.vacuna <= 255000)
+                return '#2F670C'
+            if(numeroVacunas.vacuna <= 305000)
+                return '#2B5F0A'
+            if(numeroVacunas.vacuna <= 355000)
+                return '#255905'
         }
         return 'green'
     }
