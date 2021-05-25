@@ -13,7 +13,6 @@ export const Graphics = () => {
 
     if(!isLogin && totalProgresivo)
     {
-        const parseDate = () => d3.timeParse("%Y-%m-%d")
         //Add X
         const margin = {
             top: 20,
@@ -29,18 +28,18 @@ export const Graphics = () => {
                         .attr("x", 3)
                         .attr("text-anchor", "start")
                         .attr("font-weight", "bold")
-                        .text("$ Close"))
+                        .text(""))
           const y = d3.scaleLinear()
           .domain([0, d3.max(totalProgresivo, d => d.fields.dosis_administradas)]).nice()
           .range([700 - margin.bottom, margin.top])
 
-          const xAxis = g => g
+          const xAxis = (g) => g
           .attr("transform", `translate(0,${700 - margin.bottom})`)
           .call(d3.axisBottom(x).ticks(1000 / 80).tickSizeOuter(0))
 
           const x = d3.scaleUtc()
           .domain(d3.extent(totalProgresivo, d => (d3.timeParse("%Y-%m-%d")(d.fields.fecha))))
-          .range([margin.left, 1300 - margin.right])
+          .range([margin.left, 900 - margin.right])
 
           const line = d3.line()
             .defined(d => !isNaN(d.fields.dosis_administradas))
@@ -58,21 +57,19 @@ export const Graphics = () => {
            svg.append("path")
            .datum(totalProgresivo)
            .attr("fill", "none")
-           .attr("stroke", "steelblue")
-           .attr("stroke-width", 1.5)
+           .attr("stroke", "var(--primary--color)")
+           .attr("stroke-width", 5)
            .attr("d", line); 
     }    
     return (
         <div>
             <svg 
-            className="centerItem"
-            width="100%"
-            height="170vh"
+            className="graphic"
+
+            viewBox="-120 0 1200 700"
             >
                 <g 
-                className="grap"
-                transform="translate(100 , 100)">
-
+                className="grap center-grap">
                 </g>
             </svg>
         </div>
