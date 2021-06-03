@@ -1,0 +1,11 @@
+.center-item-wrap-grap{
+  align-items: center;
+  display: flex;
+  flex-wrap: unset;
+  justify-content: center;
+}
+@media screen and (max-width: 800px) {
+  .center-item-wrap-grap{
+    flex-direction: column;
+  }
+}

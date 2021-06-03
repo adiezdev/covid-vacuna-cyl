@@ -30,7 +30,7 @@ export const getPersonasVacunadas = ( records )=>{
         return group;
     }, {})
 
-    const totalProgresivo = records?.filter((data) => data.fields.provincia === "TotalCyL");
+    const totalProgresivoPersonas = records?.filter((data) => data.fields.provincia === "TotalCyL");
 
-    return {total , ciclototal, ...groupByDosisProvincia, totalProgresivo};
+    return {total , ciclototal, ...groupByDosisProvincia, totalProgresivoPersonas};
 }

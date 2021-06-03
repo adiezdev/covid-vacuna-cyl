@@ -11,6 +11,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="Ávila"
       key="path0"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
     <path
       className="provincies"
@@ -18,6 +23,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="Burgos"
       key="path1"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
     <path
       className="provincies"
@@ -25,6 +35,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="León"
       key="path2"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
     <path
       className="provincies"
@@ -32,6 +47,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="Palencia"
       key="path3"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
     <path
       className="provincies"
@@ -39,6 +59,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="Salamanca"
       key="path4"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
     <path
       className="provincies"
@@ -46,6 +71,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="Segovia"
       key="path5"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
     <path
       className="provincies"
@@ -53,6 +83,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="Valladolid"
       key="path6"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
     <path
       className="provincies"
@@ -60,6 +95,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="Zamora"
       key="path7"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
     <path
       className="provincies"
@@ -67,6 +107,11 @@ exports[`Pruebas unitarias parel componente <MapComponent/> Renderizar correctam
       data-for="data-province"
       data-tip="Soria"
       key="path8"
+      style={
+        Object {
+          "fill": "green",
+        }
+      }
     />
   </svg>
   <ReactTooltip
