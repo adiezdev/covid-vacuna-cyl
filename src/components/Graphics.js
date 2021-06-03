@@ -67,9 +67,9 @@ export const Graphics = () => {
                svg.append("text")
                 .attr("class", "title")
                 .attr("class", "t-big")
+                .attr("fill", "var(--colortext--default)")
                 .attr("x", (500 - margin.right)/2)
                 .attr("y", margin.top)
-                .attr("text-aling", "center")
                 .text(title);
             
                svg.append("path")
