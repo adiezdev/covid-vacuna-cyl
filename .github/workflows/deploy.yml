@@ -25,5 +25,8 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
+        repository: adiezdev/covid-vacuna-cyl
         github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         publish_dir: ./build
+        ref: main
+      
