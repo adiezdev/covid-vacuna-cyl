@@ -25,8 +25,5 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        lfs: true
         github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         publish_dir: ./build
-        allow_empty_commit: true
-        force_orphan: true
