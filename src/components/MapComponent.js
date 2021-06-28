@@ -31,26 +31,30 @@ export const MapComponent = () => {
         const numeroVacunas = groupByDosisProvincia[provincia] || ''
 
         if(numeroVacunas){
-            if(numeroVacunas.vacuna <= 85000)
-                return '#6ACA2B'
-            if(numeroVacunas.vacuna <= 95000)
-                return '#63BF28'
-            if(numeroVacunas.vacuna <= 115000)
-                return '#57AC20'
             if(numeroVacunas.vacuna <= 135000)
-                return '#50A01D'
+                return '#6ACA2B'
             if(numeroVacunas.vacuna <= 145000)
-                return '#438B16'
+                return '#63BF28'
             if(numeroVacunas.vacuna <= 155000)
-                return '#3B7C13'
+                return '#57AC20'
             if(numeroVacunas.vacuna <= 205000)
-                return '#367310'
+                return '#50A01D'
             if(numeroVacunas.vacuna <= 255000)
-                return '#2F670C'
+                return '#438B16'
             if(numeroVacunas.vacuna <= 305000)
-                return '#2B5F0A'
+                return '#3B7C13'
             if(numeroVacunas.vacuna <= 355000)
+                return '#367310'
+            if(numeroVacunas.vacuna <= 405000)
+                return '#2F670C'
+            if(numeroVacunas.vacuna <= 455000)
+                return '#2B5F0A'
+            if(numeroVacunas.vacuna <= 505000)
                 return '#255905'
+            if(numeroVacunas.vacuna <= 555000)
+                return '#205003'
+            if(numeroVacunas.vacuna <= 605000)
+                return '#1A4102'
         }
         return 'green'
     }
