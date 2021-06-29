@@ -3,7 +3,7 @@ import { getVacunasCyL } from "../helpers/getVacunasCyL"
 
 
 
-export const useFetch = ( rows , datset ) =>{
+export const useFetch = ( rows , datset, provincia = null) =>{
 
     const isMounted = useRef(true)
     
@@ -13,7 +13,7 @@ export const useFetch = ( rows , datset ) =>{
 
 
     useEffect(() => {
-        getVacunasCyL( rows , datset)
+        getVacunasCyL( rows , datset, provincia)
         .then(
             data =>{
                 isMounted.current

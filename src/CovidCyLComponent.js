@@ -2,6 +2,7 @@ import React from 'react'
 import { FooterComponent } from './components/FooterComponent'
 import { Graphics } from './components/Graphics'
 import { MapComponent } from './components/MapComponent'
+import { ProgressBar } from './components/ProgressBar'
 import { ThemeSwitchComponent } from './components/theme/ThemeSwitchComponent'
 import { DosisAdministradasComponent } from './components/vacunas-administradas/DosisAdministradasComponent'
 import { VacunasRecibidasComponent } from './components/vacunas-recibidas/VacunasRecibidasComponent'
@@ -24,6 +25,8 @@ export const CovidCyLComponent = () => {
             Total de vacunas recibidas
         </h3>
         <VacunasRecibidasComponent/>
+        <h1 className="t-center t-big">Porcentaje de la población vacunada</h1>
+        <ProgressBar/>
         <h1 
         className="t-center t-big"
         >
@@ -40,8 +43,9 @@ export const CovidCyLComponent = () => {
             src={'./assets/cyl.png'}
             alt={'Escudo de la cominidad de castilla y leon'}
             width={25}
-            /><a
-            href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/vacunas-recibidas-covid/'}>
+            /><a 
+            target="_blank"
+            href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/vacunas-recibidas-covid/'} rel="noreferrer">
                 API de la Junta de Castilla y León Vacunas recibidas covid
             </a></p>
             <p
@@ -53,6 +57,7 @@ export const CovidCyLComponent = () => {
             width={25}
             />
             <a
+            target="_blank"
             href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/personas-vacunadas-covid/'}>
                 API de la Junta de Castilla y León Personas vacunadas covid
             </a>
