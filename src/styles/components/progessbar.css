@@ -1,0 +1,24 @@
+.container-progress{
+    height: 60px;
+    background-color: #e0e0de;
+    border-radius: 10px;
+    margin: 50px;
+}
+.filler-progress{
+    height: 100%;
+    width: 60%;
+    background-color: var( --primary--color);
+    border-radius: inherit;
+    text-align: right;
+}
+.label-progres{
+    display: block;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+}
+@media only screen and (max-width: 590px){
+    .container-progress{
+        margin: 10px;
+    }
+}

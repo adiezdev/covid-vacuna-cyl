@@ -8,10 +8,9 @@ import { SpinnerComponent } from './SpinnerComponent';
 
 
 export const Graphics = () => {
-    const { data: personasvacunadasproprovincia , isLogin } = useFetch( 3000 , 'personas-vacunadas-covid')
+    const { data: personasvacunadasproprovincia , isLogin } = useFetch( 4000 , 'personas-vacunadas-covid')
     const { totalProgresivoPersonas } =  getPersonasVacunadas( personasvacunadasproprovincia )
     const { data:totalProgresivoVacunas  , isLogin: isLogin2} = useFetch(6000 , 'vacunas-recibidas-covid')
-
     const llistdatas = [
     {
         title: 'Progreso de dosis administradas',
