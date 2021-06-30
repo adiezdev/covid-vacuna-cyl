@@ -6,7 +6,7 @@ import { SpinnerComponent } from './SpinnerComponent'
 export const ProgressBar = () => {
     const { data: personasvacunadasproprovincia , isLogin } = useFetch( 1 , 'personas-vacunadas-covid','TotalCyL')
     const { totalProgresivoPersonas } =  getPersonasVacunadas( personasvacunadasproprovincia )
-    console.log(totalProgresivoPersonas);
+
     return (
         <> 
         {
@@ -16,11 +16,18 @@ export const ProgressBar = () => {
             <div className="container-progress">
                 <div 
                 className="filler-progress" 
-                style={{width: `${totalProgresivoPersona.fields.porcentaje_residentes_1a_dosis.toFixed(2)}%` }}
+                style={
+                    {width: `${totalProgresivoPersona.fields.porcentaje_residentes_1a_dosis.toFixed(2)}%`}
+                }
+                onAnimationStart="grwoup 2s ease-in-out;"
                 >
                     <span 
                     className="label-progres t-midle"
-                    >{ totalProgresivoPersona.fields.porcentaje_residentes_1a_dosis.toFixed(2)}%</span>
+                    role="progressbar"
+                    aria-valuenow={totalProgresivoPersona.fields.porcentaje_residentes_1a_dosis.toFixed(2)}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    >{totalProgresivoPersona.fields.porcentaje_residentes_1a_dosis.toFixed(2)}%</span>
                 </div>
             </div> 
             ))

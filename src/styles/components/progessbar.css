@@ -2,15 +2,18 @@
     height: 60px;
     background-color: #e0e0de;
     border-radius: 10px;
-    margin: 50px;
+    margin-inline-start: 220px;
+    margin-inline-end: 220px;
+    margin-block-start: 50px;
+    margin-block-end: 50px;
 }
 .filler-progress{
     height: 100%;
-    width: 60%;
     background-color: var( --primary--color);
     border-radius: inherit;
     text-align: right;
-}
+    animation: grwoup 6.5s forwards;
+  }
 .label-progres{
     display: block;
     padding: 12px;
@@ -20,5 +23,10 @@
 @media only screen and (max-width: 590px){
     .container-progress{
         margin: 10px;
+    }
+}
+@keyframes grwoup {
+    0%{
+        width: 100px;
     }
 }
