@@ -32,5 +32,10 @@ export const getPersonasVacunadas = ( records )=>{
 
     const totalProgresivoPersonas = records?.filter((data) => data.fields.provincia === "TotalCyL");
 
-    return {total , ciclototal, ...groupByDosisProvincia, totalProgresivoPersonas};
+    const porcientoPoblacionVacunada = records?.filter((data) => data.fields.provincia === "TotalCyL").reduce( (count  , data) =>{
+        const { porcentaje_residentes_1a_dosis } = data.fields
+        return  porcentaje_residentes_1a_dosis;
+    }, 0);
+
+    return {total , ciclototal, ...groupByDosisProvincia, totalProgresivoPersonas, porcientoPoblacionVacunada};
 }
