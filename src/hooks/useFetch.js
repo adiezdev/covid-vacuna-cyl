@@ -31,7 +31,7 @@ export const useFetch = ( rows , datset, provincia = null) =>{
                     })
             }
         )
-    }, [rows ,  datset])
+    }, [rows, datset, provincia])
 
     return state;
 }

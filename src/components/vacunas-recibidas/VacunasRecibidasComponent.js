@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch';
+import { useIncrement } from '../../hooks/useIncrement';
 import { getVacunasRecibidas } from '../../selectors/vacunas-recibidas/getVacunasRecibidas';
 import { SpinnerComponent } from '../SpinnerComponent';
 /**
@@ -11,6 +12,14 @@ export const VacunasRecibidasComponent = () => {
     //Because to 36 lines is equals to last modification
     const { data , isLogin } = useFetch(36 , 'vacunas-recibidas-covid')
     const { total , groupByMarca: { AstraZeneca, Moderna ,Pfizer, Janssen } }  = getVacunasRecibidas( data )
+    
+    const {count} = useIncrement(total)
+
+    const {count: cPfizer} = useIncrement(Pfizer?.vacuna)
+    const {count: cModerna} = useIncrement(Moderna?.vacuna)
+    const {count: cAstraZeneca} = useIncrement(AstraZeneca?.vacuna)
+    const {count: cJanssen} = useIncrement(Janssen?.vacuna)
+
     return (
         <div>
             <div className="center-item-wrap">
@@ -18,24 +27,24 @@ export const VacunasRecibidasComponent = () => {
                 !isLogin ?
                     <div className="maincard card-fiexWidth-big" data-testid='list'>
                     <header className="t-big">Total</header>
-                    <div className="data t-big">{total}</div>
+                    <div className="data t-big">{count}</div>
                     {
                     <ul className='types-vaccines'>
                         <li className="t-midle">
                             <img src='./assets/vacunas/pfizer.png' alt='Pfizer'/>
-                            <div>{Pfizer.vacuna}</div>
+                            <div>{cPfizer}</div>
                         </li>
                         <li className="t-midle">
                             <img src='./assets/vacunas/moderna.png' alt='Moderna'/>
-                            <div>{Moderna.vacuna}</div>
+                            <div>{cModerna}</div>
                         </li>
                         <li className="t-midle">
                             <img src='./assets/vacunas/astraceneca.png' alt='Astraceneca'/>
-                            <div>{AstraZeneca.vacuna}</div>
+                            <div>{cAstraZeneca}</div>
                         </li>
                         <li className="t-midle">
-                            <img src='./assets/vacunas/janssen.png' alt='Astraceneca'/>
-                            <div>{Janssen.vacuna}</div>
+                            <img src='./assets/vacunas/janssen.png' alt='Janssen'/>
+                            <div>{cJanssen}</div>
                         </li>
                     </ul>
                     }

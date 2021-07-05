@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { SpinnerComponent } from '../SpinnerComponent'
+import { useIncrement } from '../../hooks/useIncrement'
 /**
  * 
  * Component forming the card
  */
-export const CardDosisAdministradasComponent = ({ total = 0,title, img, loading}) => {
+export const CardDosisAdministradasComponent = ({ total = 0 ,title, img, loading}) => {
 
+    const {count} = useIncrement(total)
 
     return (
         <div className="maincard card-fiexWidth-midle">
@@ -21,7 +23,7 @@ export const CardDosisAdministradasComponent = ({ total = 0,title, img, loading}
             {
                 !loading
                 ?
-                <div className="data t-big">{total}</div>
+                <div className="data t-big">{count}</div>
                 :
                 <SpinnerComponent></SpinnerComponent>
             }

@@ -45,7 +45,7 @@ export const CovidCyLComponent = () => {
             width={25}
             /><a 
             target="_blank"
-            href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/vacunas-recibidas-covid/'} rel="noreferrer">
+            href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/vacunas-recibidas-covid/'} rel="noopener">
                 API de la Junta de Castilla y León Vacunas recibidas covid
             </a></p>
             <p
@@ -58,7 +58,7 @@ export const CovidCyLComponent = () => {
             />
             <a
             target="_blank"
-            href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/personas-vacunadas-covid/'}>
+            href={'https://analisis.datosabiertos.jcyl.es/explore/dataset/personas-vacunadas-covid/'}rel="noopener">
                 API de la Junta de Castilla y León Personas vacunadas covid
             </a>
             </p>
