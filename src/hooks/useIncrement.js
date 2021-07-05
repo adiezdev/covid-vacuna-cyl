@@ -23,7 +23,7 @@ export const useIncrement = ( total = 0) =>{
             start +=1
 
             setCount(start + total.toString().substring(4))
-            return () => clearInterval(timer);
+            if( start === end) clearInterval(timer);
         }, incrementTime)
         
     }, [total])
