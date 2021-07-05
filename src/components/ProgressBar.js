@@ -1,15 +1,12 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useFetch } from '../hooks/useFetch'
 import { useIncrement } from '../hooks/useIncrement'
 import { getPersonasVacunadas } from '../selectors/personas-vacunadas/getPersonasVacunadas'
 import { SpinnerComponent } from './SpinnerComponent'
 
-export const ProgressBar = () => {
-    console.log('Hola');
+export const ProgressBar = React.memo(() => {
     const { data , isLogin } = useFetch( 1 , 'personas-vacunadas-covid','TotalCyL')
-    //const  {porcientoPoblacionVacunada}  =  getPersonasVacunadas( data )
-    const {porcientoPoblacionVacunada} = useMemo(() => getPersonasVacunadas( data ) , [data])
-    console.log(porcientoPoblacionVacunada);
+    const {porcientoPoblacionVacunada} =getPersonasVacunadas( data )
     const {count} = useIncrement(porcientoPoblacionVacunada?.toFixed(1))
     return (
         <> 
@@ -41,4 +38,4 @@ export const ProgressBar = () => {
       
         </>
     )
-}
+})
