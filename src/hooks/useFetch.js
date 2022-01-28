@@ -1,37 +1,27 @@
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
+import useSWR from "swr"
 import { getVacunasCyL } from "../helpers/getVacunasCyL"
 
 
 
-export const useFetch = ( rows , datset, provincia = null) =>{
+export const useFetch = (datset, rows, provincia) => {
+    const endpoint = getVacunasCyL(datset, rows, provincia)
 
-    const isMounted = useRef(true)
-    
-    const [isLogin] = useState(true)
+    const fetcher = (...args) => fetch(...args).then(res => res.json())
+    const usefetching = useSWR(endpoint, fetcher)
 
-    const [state, setState] = useState({ data: null , error: null , isLogin })
+    const data = usefetching.data?.records?.map(record => {
+        return {
+            fields: record.fields,
+            type: record.datasetid,
+            id: record.recordid,
+        }
+    })
+    if (!data) { return { data: null, isLogin: true } }
 
-
-    useEffect(() => {
-        getVacunasCyL( rows , datset, provincia)
-        .then(
-            data =>{
-                isMounted.current
-                ?
-                    setState({
-                        data: data,
-                        error: null,
-                        isLogin: false
-                    })
-                :
-                    setState({
-                        data: null,
-                        error: 'Error al cargar',
-                        isLogin: true
-                    })
-            }
-        )
-    }, [rows, datset, provincia])
-
-    return state;
+    return {
+        data: data,
+        error: null,
+        isLogin: false
+    }
 }

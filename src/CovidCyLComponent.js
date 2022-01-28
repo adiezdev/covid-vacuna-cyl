@@ -6,7 +6,7 @@ import { ProgressBar } from './components/ProgressBar'
 import { ThemeSwitchComponent } from './components/theme/ThemeSwitchComponent'
 import { DosisAdministradasComponent } from './components/vacunas-administradas/DosisAdministradasComponent'
 import { VacunasRecibidasComponent } from './components/vacunas-recibidas/VacunasRecibidasComponent'
-
+import ecudoCyl from './assets/cyl.png'
 export const CovidCyLComponent = () => {
 
     return (
@@ -40,7 +40,7 @@ export const CovidCyLComponent = () => {
             <p
                 className='t-center t-small'
             ><img
-            src={'./assets/cyl.png'}
+            src={ecudoCyl}
             alt={'Escudo de la cominidad de castilla y leon'}
             width={25}
             /><a 
@@ -52,7 +52,7 @@ export const CovidCyLComponent = () => {
                 className='t-center t-small'
             >
             <img
-            src={'./assets/cyl.png'}
+            src={ecudoCyl}
             alt={'Escudo de la cominidad de castilla y leon'}
             width={25}
             />

@@ -1,8 +1,11 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch';
-import { useIncrement } from '../../hooks/useIncrement';
 import { getVacunasRecibidas } from '../../selectors/vacunas-recibidas/getVacunasRecibidas';
 import { SpinnerComponent } from '../SpinnerComponent';
+import  ImgPifizer from '../../assets/vacunas/pfizer.png'
+import  ImgModerna from '../../assets/vacunas/moderna.png'
+import  ImgAstraceneca from '../../assets/vacunas/astraceneca.png'
+import  ImgJanssen from '../../assets/vacunas/janssen.png'
 /**
  * Component for 'Vacunas recbidas'
  * and brand vaccine type
@@ -10,15 +13,16 @@ import { SpinnerComponent } from '../SpinnerComponent';
  */
 export const VacunasRecibidasComponent = () => {
     //Because to 36 lines is equals to last modification
-    const { data , isLogin } = useFetch(36 , 'vacunas-recibidas-covid')
+    const { data , isLogin } = useFetch( 'vacunas-recibidas-covid')
+
     const { total , groupByMarca: { AstraZeneca, Moderna ,Pfizer, Janssen } }  = getVacunasRecibidas( data )
     
-    const {count} = useIncrement(total)
+    // const {count} = useIncrement(total)
 
-    const {count: cPfizer} = useIncrement(Pfizer?.vacuna)
-    const {count: cModerna} = useIncrement(Moderna?.vacuna)
-    const {count: cAstraZeneca} = useIncrement(AstraZeneca?.vacuna)
-    const {count: cJanssen} = useIncrement(Janssen?.vacuna)
+    // const {count: cPfizer} = useIncrement(Pfizer?.vacuna)
+    // const {count: cModerna} = useIncrement(Moderna?.vacuna)
+    // const {count: cAstraZeneca} = useIncrement(AstraZeneca?.vacuna)
+    // const {count: cJanssen} = useIncrement(Janssen?.vacuna)
 
     return (
         <div>
@@ -27,24 +31,24 @@ export const VacunasRecibidasComponent = () => {
                 !isLogin ?
                     <div className="maincard card-fiexWidth-big" data-testid='list'>
                     <header className="t-big">Total</header>
-                    <div className="data t-big">{count}</div>
+                    <div className="data t-big">{total}</div>
                     {
                     <ul className='types-vaccines'>
                         <li className="t-midle">
-                            <img src='./assets/vacunas/pfizer.png' alt='Pfizer'/>
-                            <div>{cPfizer}</div>
+                            <img src={ImgPifizer} alt='Pfizer'/>
+                            <div>{Pfizer?.vacuna}</div>
                         </li>
                         <li className="t-midle">
-                            <img src='./assets/vacunas/moderna.png' alt='Moderna'/>
-                            <div>{cModerna}</div>
+                            <img src={ImgModerna} alt='Moderna'/>
+                            <div>{Moderna?.vacuna}</div>
                         </li>
                         <li className="t-midle">
-                            <img src='./assets/vacunas/astraceneca.png' alt='Astraceneca'/>
-                            <div>{cAstraZeneca}</div>
+                            <img src={ImgAstraceneca} alt='Astraceneca'/>
+                            <div>{AstraZeneca?.vacuna}</div>
                         </li>
                         <li className="t-midle">
-                            <img src='./assets/vacunas/janssen.png' alt='Janssen'/>
-                            <div>{cJanssen}</div>
+                            <img src={ImgJanssen} alt='Janssen'/>
+                            <div>{Janssen?.vacuna}</div>
                         </li>
                     </ul>
                     }

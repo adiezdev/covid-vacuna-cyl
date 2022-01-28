@@ -34,3 +34,10 @@ a:hover{
     flex-wrap: unset;
     justify-content: center;
 }
+.center-item-wrap-v{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}

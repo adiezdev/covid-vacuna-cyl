@@ -6,8 +6,6 @@ import { renameKeys } from '../../functions/renameKeyObj';
  * @returns 
  */
 export const getVacunasRecibidas = ( records )=>{
-
-    
     const total = records?.reduce((count , data)=>{
         const { total_vacunas_recibidas  } = data.fields
 

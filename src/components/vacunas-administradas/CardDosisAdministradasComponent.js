@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { SpinnerComponent } from '../SpinnerComponent'
 import { useIncrement } from '../../hooks/useIncrement'
@@ -15,7 +14,7 @@ export const CardDosisAdministradasComponent = ({ total = 0 ,title, img, loading
             <header>
                 <img 
                 className='header-img'
-                src={`${img}.svg`} 
+                src={img} 
                 alt='icono_vacuna' 
                 />
                 <p className='t-midle'>{ title }</p>

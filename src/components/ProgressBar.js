@@ -5,7 +5,7 @@ import { getPersonasVacunadas } from '../selectors/personas-vacunadas/getPersona
 import { SpinnerComponent } from './SpinnerComponent'
 
 export const ProgressBar = React.memo(() => {
-    const { data , isLogin } = useFetch( 1 , 'personas-vacunadas-covid','TotalCyL')
+    const { data , isLogin } = useFetch(  'personas-vacunadas-covid', 1,'TotalCyL')
     const {porcientoPoblacionVacunada} =getPersonasVacunadas( data )
     const {count} = useIncrement(porcientoPoblacionVacunada?.toFixed(1))
     return (

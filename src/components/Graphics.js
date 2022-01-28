@@ -1,93 +1,73 @@
 import React from 'react'
-
-import * as d3  from "d3";
-
+import {
+    AreaChart,
+    Area,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer
+} from "recharts";
 import { useFetch } from '../hooks/useFetch';
-import { getPersonasVacunadas } from '../selectors/personas-vacunadas/getPersonasVacunadas';
+import { groupByMesPv } from '../selectors/personas-vacunadas/getGroupByMesPv';
+import { groupByMesVr } from '../selectors/vacunas-recibidas/groupByMesVr';
 import { SpinnerComponent } from './SpinnerComponent';
 
 
 export const Graphics = () => {
-    const { data: personasvacunadasproprovincia , isLogin } = useFetch( 4000 , 'personas-vacunadas-covid')
-    const { totalProgresivoPersonas } =  getPersonasVacunadas( personasvacunadasproprovincia )
-    const { data:totalProgresivoVacunas  , isLogin: isLogin2} = useFetch(6000 , 'vacunas-recibidas-covid')
+    const { data: personasvacunadasproprovincia, isLogin } = useFetch('personas-vacunadas-covid', 5000)
+    const { data: totalProgresivoVacunas, isLogin: isLogin2 } = useFetch('vacunas-recibidas-covid', 10000)
+
+    const personaspormes = groupByMesPv(personasvacunadasproprovincia)
+    const vacunasrecibidaspormes = groupByMesVr(totalProgresivoVacunas)
+
     const llistdatas = [
-    {
-        title: 'Progreso de dosis administradas',
-        data: totalProgresivoPersonas,
-        type: 'dosis_administradas'
-    },
-    {
-        title: 'Progreso de vacunas recibidas',
-        data: totalProgresivoVacunas,
-        type: 'total_vacunas_recibidas'
-    }];
+        {
+            title: 'Progreso de dosis administradas',
+            data: personaspormes,
+        },
+        {
+            title: 'Progreso de vacunas recibidas',
+            data: vacunasrecibidaspormes,
+        }];
 
-    
-    function createGrapihc(data , type, title){
-        const svg =  d3.select(".grap").append("svg").attr("viewBox", "-220 -10 1500 600")
-            //Add X
-            const margin = {
-                top: 20,
-                right: 30,
-                bottom: 30,
-                left: 40
-              }
-              const yAxis = (g) => g
-                        .attr("transform", `translate(${margin.left},0)`)
-                        .call(d3.axisLeft(y))
-                        .call(g => g.select(".domain").remove())
-                        .call(g => g.select(".tick:last-of-type text").clone())
-              const y = d3.scaleLinear()
-              .domain([0, d3.max(data, d => d.fields[type])]).nice()
-              .range([600 - margin.bottom, margin.top])
-    
-              const xAxis = (g) => g
-              .attr("transform", `translate(0,${600 - margin.bottom})`)
-              .call(d3.axisBottom(x).ticks(1000 / 80).tickSizeOuter(0))
-    
-              const x = d3.scaleUtc()
-              .domain(d3.extent(data, d => (d3.timeParse("%Y-%m-%d")(d.fields.fecha))))
-              .range([margin.left, 1200 - margin.right])
-    
-              const line = d3.line()
-                .curve(d3.curveBasis) 
-                .defined(d => !isNaN(d.fields[type]))
-                .x(d => x((d3.timeParse("%Y-%m-%d")(d.fields.fecha))))
-                .y(d => y(d.fields[type]))
 
-            
-               svg.append("g")
-                    .call(yAxis)
-                
-               svg.append("g")
-               .call(xAxis)
 
-               svg.append("text")
-                .attr("class", "title")
-                .attr("class", "t-big")
-                .attr("fill", "var(--colortext--default)")
-                .attr("x", (500 - margin.right)/2)
-                .attr("y", margin.top)
-                .text(title);
-            
-               svg.append("path")
-               .datum(data)
-               .attr("fill", "none")
-               .attr("stroke", "var(--primary--color)")
-               .attr("stroke-width", 5)
-               .attr("d", line); 
-
-    }
     return (
-        <div className="grap center-item-wrap-grap">
-            {
-               !isLogin && !isLogin2 ?  
-               llistdatas.map(llistdata =>(                
-                createGrapihc(llistdata.data, llistdata.type, llistdata.title)
-                )) :  <SpinnerComponent />
+        //grap 
+        <div className='center-item-wrap-grap'>
+            {!isLogin || !isLogin2 ?
+            llistdatas.map((item) => {
+                return (
+                    <>
+                        <div className='center-item-wrap-v'>
+                            <h1 className='t-center t-big'>{item.title}</h1>
+                            <div style={{ width: '100%', height: 300 }} >
+                                <ResponsiveContainer>
+                                    <AreaChart
 
-            }
+                                        width={500}
+                                        height={400}
+                                        data={item.data}
+                                        margin={{
+                                            top: 10,
+                                            right: 30,
+                                            left: 35,
+                                            bottom: 0,
+                                        }}
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis dataKey="name" />
+                                        <YAxis />
+                                        <Tooltip labelStyle={{ color: "#000" }} />
+                                        <Area type="monotone" dataKey="uv" stroke="rgb(54, 115, 16)" fill="rgb(80, 160, 29)" />
+                                    </AreaChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </div>
+
+                    </>)
+            }): <SpinnerComponent/>}
         </div>
     )
 }
