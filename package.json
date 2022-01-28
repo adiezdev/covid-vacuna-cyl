@@ -48,6 +48,5 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.1",
     "gh-pages": "^3.2.3"
-  },
-  "homepage": "https://adiezdev.github.io/covid-vacuna-cyl/"
+  }
 }
